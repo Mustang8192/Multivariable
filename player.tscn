@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://boshkkqunxhsr"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_fmue2"]
+[ext_resource type="Texture2D" uid="uid://co3ld3hyyv0p8" path="res://Sprites/mario.png" id="2_4geug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmiig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrkkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3kgu"]
+size = Vector2(6, 22)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_fmue2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, 0)
+shape = SubResource("RectangleShape2D_xmiig")
+
+[node name="Mario" type="Sprite2D" parent="."]
+position = Vector2(-1.37, 0)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_4geug")
+
+[node name="Incorrect Barrel" type="Area2D" parent="."]
+
+[node name="IncorrectBarrelCollision" type="CollisionShape2D" parent="Incorrect Barrel"]
+shape = SubResource("RectangleShape2D_qrkkp")
+
+[node name="Correct Barrel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Correct Barrel"]
+position = Vector2(-8, 21)
+shape = SubResource("RectangleShape2D_y3kgu")
+
+[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
+[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Correct Barrel" to="." method="_on_correct_barrel_body_entered"]

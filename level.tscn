@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://csbjt7m57x4v0"]
+
+[ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
+[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://correct_barrel.tscn" id="2_vt2sl"]
+[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://incorrect_barrel.tscn" id="3_3fe72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
+size = Vector2(1157, 20)
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6y14x")]
+position = Vector2(577, 432)
+scale = Vector2(3, 3)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(575, 534)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_68eh2")
+
+[node name="CorrectBarrel" parent="." instance=ExtResource("2_vt2sl")]
+position = Vector2(823, 373)
+
+[node name="IncorrectBarrel" parent="." instance=ExtResource("3_3fe72")]
+position = Vector2(1059, 223)

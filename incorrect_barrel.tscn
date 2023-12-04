@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ar4e3iiuxh7"]
+
+[ext_resource type="Script" path="res://incorrect_barrel.gd" id="1_koa4y"]
+[ext_resource type="Texture2D" uid="uid://bj1tkv668pl67" path="res://Sprites/barrel.png" id="2_yxlo4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qt7l"]
+
+[node name="IncorrectBarrel" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_koa4y")
+metadata/incorrectBarrel = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6qt7l")
+
+[node name="Barrel" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_yxlo4")
