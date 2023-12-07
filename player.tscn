@@ -12,10 +12,12 @@ size = Vector2(6, 22)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_fmue2")
+metadata/type = "player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, 0)
 shape = SubResource("RectangleShape2D_xmiig")
+metadata/type = "player"
 
 [node name="Mario" type="Sprite2D" parent="."]
 position = Vector2(-1.37, 0)
@@ -23,15 +25,19 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_4geug")
 
 [node name="Incorrect Barrel" type="Area2D" parent="."]
+metadata/type = "player_collision"
 
 [node name="IncorrectBarrelCollision" type="CollisionShape2D" parent="Incorrect Barrel"]
 shape = SubResource("RectangleShape2D_qrkkp")
+metadata/type = "player_collision"
 
 [node name="Correct Barrel" type="Area2D" parent="."]
+metadata/type = "player_collision"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Correct Barrel"]
+[node name="CorrectBarrelCollision" type="CollisionShape2D" parent="Correct Barrel"]
 position = Vector2(-8, 21)
 shape = SubResource("RectangleShape2D_y3kgu")
+metadata/type = "player_collision"
 
 [connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
 [connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]

@@ -8,6 +8,9 @@ const JUMP_VELOCITY = -400.0
 var gravity = 980
 var lives = 3
 
+func _process(delta):
+	set_meta("lives", lives)
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,35 +31,22 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
-#func _on_area_2d_body_entered(body):
-#	if body.name == "CorrectBarrel":
-#		print_debug("Correct")
-#	if body.name == "IncorrectBarrel":
-#		print_debug("Incorrect")
-
-
-#func _on_incorrect_barrel_body_entered(body):
-#	if body.correctBarrel:
-#		print_debug("WRONG")
-#		lives -= 1
-#		body.queue_free()
-#	if body.incorrectBarrel:
-#		print_debug("RIGHT")
-#		body.queue_free()
-#	if lives <= 0:
-#		get_parent().queue_free()
+func _on_incorrect_barrel_body_entered(body):
+	if body.get_meta("type") == "correct_barrel":
+		lives -= 1
+		body.queue_free()
+	if body.get_meta("type") == "incorrect_barrel":
+		body.queue_free()
+	if lives <= 0:
+		get_parent().queue_free()
 
 
 
-#func _on_correct_barrel_body_entered(body):
-#	if body.correctBarrel:
-#		print_debug("RIGHT")
-#		body.queue_free()
-#	if body.incorrectBarrel:
-#		print_debug("WRONG")
-#		lives -= 1
-#		body.queue_free()
-#	if lives <= 0:
-#		get_parent().queue_free()
-
+func _on_correct_barrel_body_entered(body):
+	if body.get_meta("type") == "correct_barrel":
+		body.queue_free()
+	if body.get_meta("type") == "incorrect_barrel":
+		lives -= 1
+		body.queue_free()
+	if lives <= 0:
+		get_parent().queue_free()
