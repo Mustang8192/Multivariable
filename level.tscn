@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
 [ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="3_3fe72"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="4_8lrig"]
+
 [ext_resource type="Script" path="res://Scripts/Questions.gd" id="5_ty3yc"]
+[ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_urlo3"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(1157, 20)
@@ -22,15 +25,6 @@ metadata/type = "floor"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_68eh2")
 
-[node name="CorrectBarrel" parent="." instance=ExtResource("2_vt2sl")]
-position = Vector2(823, 373)
-
-[node name="IncorrectBarrel" parent="." instance=ExtResource("3_3fe72")]
-position = Vector2(1059, 223)
-
-[node name="CorrectBarrel2" parent="." instance=ExtResource("2_vt2sl")]
-position = Vector2(950, 352)
-
 [node name="Lives Counter" type="RichTextLabel" parent="."]
 offset_top = 1.0
 offset_right = 81.0
@@ -42,3 +36,23 @@ script = ExtResource("4_8lrig")
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_ty3yc")
+[node name="Question" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="Question" type="RichTextLabel" parent="Question"]
+offset_left = 93.75
+offset_top = 39.25
+offset_right = 139.75
+offset_bottom = 62.25
+text = "2+4=?"
+
+[node name="BarrelSpawner" type="Node2D" parent="."]
+script = ExtResource("5_urlo3")
+incorrect_barrel_scene = ExtResource("3_3fe72")
+correct_barrel_scene = ExtResource("2_vt2sl")
+
+[node name="Timer" type="Timer" parent="BarrelSpawner"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="BarrelSpawner/Timer" to="BarrelSpawner" method="_on_timer_timeout"]

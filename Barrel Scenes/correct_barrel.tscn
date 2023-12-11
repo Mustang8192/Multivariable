@@ -16,3 +16,10 @@ shape = SubResource("CircleShape2D_6qt7l")
 [node name="Barrel" type="Sprite2D" parent="."]
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_aaj0m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -4.66667
+offset_top = -29.3333
+offset_right = 5.33333
+offset_bottom = -3.33334
+text = "6"

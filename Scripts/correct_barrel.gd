@@ -2,13 +2,12 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
-var gravity = 980
 var direction = -1
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y = SPEED + 50
 
 
 	if is_on_floor():
