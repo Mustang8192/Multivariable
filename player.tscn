@@ -39,6 +39,6 @@ position = Vector2(-8, 21)
 shape = SubResource("RectangleShape2D_y3kgu")
 metadata/type = "player_collision"
 
-[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
 [connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
 [connection signal="body_entered" from="Correct Barrel" to="." method="_on_correct_barrel_body_entered"]
