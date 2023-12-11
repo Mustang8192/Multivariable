@@ -1,6 +1,6 @@
 extends CharacterBody2D
-const Gen = preload("res://Scripts/Questions.gd")
-var questions = Gen.new()
+const Generator = preload("res://Scripts/Questions.gd")
+var questions = Generator.new()
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
@@ -51,7 +51,6 @@ func _on_correct_barrel_body_entered(body):
 		questions._questionGenAdd()
 	if body.get_meta("type") == "incorrect_barrel":
 		lives -= 1
-		questions._questionGenAdd()
 		body.queue_free()
 	if lives <= 0:
 		get_parent().queue_free()
