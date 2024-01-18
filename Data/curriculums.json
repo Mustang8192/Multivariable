@@ -1,5 +1,5 @@
 {
-	"curriculum_one": {
+	"curriculum_1": {
 		"question_type_1": {
 			"range_one_low": 0,
 			"range_one_high": 12,
@@ -15,7 +15,7 @@
 			"question_type": "Division"
 		}
 	},
-	"curriculum_two": {
+	"curriculum_2": {
 		"question_type_1": {
 			"range_one_low": -20,
 			"range_one_high": 20,
@@ -38,7 +38,7 @@
 			"question_type": "Division"
 		}
 	},
-	"curriculum_three": {
+	"curriculum_3": {
 		"question_type_1": {
 			"range_one_low": 1,
 			"range_one_high": 10,
@@ -82,7 +82,7 @@
 			"question_type": "Subtraction"
 		}
 	},
-	"curriculum_four": {
+	"curriculum_4": {
 		"question_type_1": {
 			"range_one_low": 12,
 			"range_one_high": 96,
