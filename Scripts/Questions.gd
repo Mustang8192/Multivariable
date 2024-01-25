@@ -4,7 +4,7 @@ extends RichTextLabel
 var body
 var json_file_path = "res://Data/curriculums.json"
 var curriculum_data
-var curriculums
+var curriculums = {}
 var current_level = 2
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +14,7 @@ func _ready():
 	json_file.close()
 	var i = 0
 	for key in curriculum_data:
-		#curriculums[i] = curriculum_data[key]
+		curriculums[i] = curriculum_data[key]
 		i+=1
 	i = 0
 
