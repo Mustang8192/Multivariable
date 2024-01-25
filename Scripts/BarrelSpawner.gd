@@ -9,12 +9,26 @@ var pos1 = Vector2(1100, 300)
 var pos2 = Vector2(1100, 50)
 var pos3 = Vector2(1100, -200)
 
+var question_gen: Node2D
+
+func _ready():
+	for child in get_parent().get_children():
+		if child.name == "Question":
+			question_gen = child
+			break
+
 func _on_timer_timeout():
 	var correct = correct_barrel_scene.instantiate()
 	var incorrect1 = incorrect_barrel_scene.instantiate()
 	var incorrect2 = incorrect_barrel_scene.instantiate()
 	
 	var i = random.randi() % 3
+	
+	var info: Dictionary
+	info = question_gen.generate_question();
+	correct.set_label_text(info["answer"])
+	incorrect1.set_label_text(info["wrong_1"])
+	incorrect2.set_label_text(info["wrong_2"])
 	
 	if i == 0:
 		correct.position = pos1

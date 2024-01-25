@@ -30,13 +30,9 @@ offset_bottom = 41.0
 text = "Lives: 3"
 script = ExtResource("4_8lrig")
 
-[node name="Questions" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_ty3yc")
-
 [node name="Question" type="Node2D" parent="."]
 scale = Vector2(4, 4)
+script = ExtResource("5_ty3yc")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
 offset_left = 93.75
