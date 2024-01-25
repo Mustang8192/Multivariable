@@ -45,11 +45,11 @@ func _physics_process(delta):
 func _on_incorrect_barrel_body_entered(body):
 	if body.get_meta("type") == "correct_barrel":
 		lives -= 1
-		#questions.generate_question()
+		questions.generate_question()
 		body.queue_free()
 	if body.get_meta("type") == "incorrect_barrel":
 		body.queue_free()
-		#questions.generate_question()
+		questions.generate_question()
 	if lives <= 0:
 		get_parent().queue_free()
 

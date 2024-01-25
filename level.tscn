@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=9 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(1157, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
+size = Vector2(10, 650)
 
 [node name="Level" type="Node2D"]
 
@@ -49,5 +52,21 @@ correct_barrel_scene = ExtResource("2_vt2sl")
 [node name="Timer" type="Timer" parent="BarrelSpawner"]
 wait_time = 5.0
 autostart = true
+
+[node name="Wall (Left)" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Left)"]
+position = Vector2(2.08165e-12, 325)
+shape = SubResource("RectangleShape2D_e7sk1")
+one_way_collision_margin = 0.0
+debug_color = Color(0.988235, 0, 0, 1)
+
+[node name="Wall (Right)" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Right)"]
+position = Vector2(1150, 325)
+shape = SubResource("RectangleShape2D_e7sk1")
+one_way_collision_margin = 0.0
+debug_color = Color(0.988235, 0, 0, 1)
 
 [connection signal="timeout" from="BarrelSpawner/Timer" to="BarrelSpawner" method="_on_timer_timeout"]

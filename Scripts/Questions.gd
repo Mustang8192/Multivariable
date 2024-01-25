@@ -7,6 +7,7 @@ var curriculum_data
 var curriculums = {}
 var current_level = 1
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var json_file = FileAccess.open(json_file_path, FileAccess.READ)
