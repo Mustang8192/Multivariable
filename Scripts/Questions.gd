@@ -7,9 +7,12 @@ var curriculum_data
 var curriculums = {}
 var current_level = 1
 
+var label: RichTextLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_label_node()
 	var json_file = FileAccess.open(json_file_path, FileAccess.READ)
 	curriculum_data = JSON.parse_string(json_file.get_as_text())
 	json_file.close()
@@ -18,6 +21,12 @@ func _ready():
 		curriculums[i] = curriculum_data[key]
 		i+=1
 	i = 0
+
+func get_label_node():
+	for child in get_children():
+		if child is RichTextLabel:
+			label = child
+			break
 
 func generate_question():
 	var current_curriculum = curriculums[current_level]
@@ -67,4 +76,7 @@ func _questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
 		"wrong_1": str(wrong1),
 		"wrong_2": str(wrong2)
 	}
+	
+func set_label_text(text: String):
+	label.set_text(text)
 

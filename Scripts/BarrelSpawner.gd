@@ -29,6 +29,7 @@ func _on_timer_timeout():
 	correct.set_label_text(info["answer"])
 	incorrect1.set_label_text(info["wrong_1"])
 	incorrect2.set_label_text(info["wrong_2"])
+	question_gen.set_label_text(info["text"])
 	
 	if i == 0:
 		correct.position = pos1

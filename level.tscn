@@ -38,10 +38,10 @@ scale = Vector2(4, 4)
 script = ExtResource("5_ty3yc")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 93.75
-offset_top = 39.25
-offset_right = 139.75
-offset_bottom = 62.25
+offset_left = 94.0
+offset_top = 39.0
+offset_right = 200.0
+offset_bottom = 62.0
 text = "2+4=?"
 
 [node name="BarrelSpawner" type="Node2D" parent="."]
