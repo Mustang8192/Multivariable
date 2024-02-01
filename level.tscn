@@ -43,6 +43,7 @@ offset_top = 39.0
 offset_right = 200.0
 offset_bottom = 62.0
 text = "2+4=?"
+metadata/_edit_group_ = true
 
 [node name="BarrelSpawner" type="Node2D" parent="."]
 script = ExtResource("5_urlo3")

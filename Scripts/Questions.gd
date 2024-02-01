@@ -34,23 +34,20 @@ func generate_question():
 	var question_count = 0
 	for key in current_curriculum:
 		question_count+=1
-	var question = current_curriculum["question_type_1"] # + str(randi_range(1, question_count))]
+	var question = current_curriculum["question_type_" + str(randi_range(1, question_count))] # + str(randi_range(1, question_count))]
 	var question_info: Dictionary
 	match question["question_type"]:
 		"Addition":
-			question_info = _questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
 		"Subtraction":
-			question_info = _questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
 		"Division":
-			question_info = {
-				"answer": "division"
-			}
+			question_info = questionGenDivide(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
 	print(question["question_type"])
 	return question_info
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
-	print("Generating New Problem")
+func questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
+	print("Generating Addition Problem")
 	var val1 = randi_range(rand1_low, rand1_high)
 	var val2 = randi_range(rand2_low, rand2_high)
 	var text: String
@@ -73,6 +70,34 @@ func _questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
 		"value_1": val1,
 		"value_2": val2,
 		"answer": str(answer),
+		"wrong_1": str(wrong1),
+		"wrong_2": str(wrong2)
+	}
+
+func questionGenDivide(rand1_low, rand1_high, rand2_low, rand2_high):
+	print("Generating Division Problem")
+	var divisor = randi_range(rand1_low, rand1_high)
+	var quotient = randi_range(rand2_low, rand2_high)
+	var text: String
+	
+	var dividend = divisor * quotient
+
+	text = str(dividend) + " ÷ " + str(divisor) + " ="
+	
+	var wrong1 = quotient
+	var wrong2 = quotient
+	
+	while wrong1 == quotient:
+		wrong1 = randi_range(rand1_low, rand1_high)
+	while wrong2 == quotient or wrong2 == wrong1:
+		wrong2 = randi_range(rand1_low, rand1_high)
+	
+	print(str(text))
+	return {
+		"text": text,
+		"value_1": dividend,
+		"value_2": divisor,
+		"answer": str(quotient),
 		"wrong_1": str(wrong1),
 		"wrong_2": str(wrong2)
 	}
