@@ -10,6 +10,7 @@ func get_label_node():
 		if child is Label:
 			label = child
 			break
+			
 
 func _physics_process(delta):
 	# Add the gravity.

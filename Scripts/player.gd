@@ -1,15 +1,15 @@
 extends CharacterBody2D
-const Generator = preload("res://Scripts/Questions.gd")
-var questions = Generator.new()
+#const Generator = preload("res://Scripts/question_generation.gd")
+#var questions = Generator.new()
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
-
 var gravity = 980
 var lives = 3
 
-#var on_floor_last_tick : bool
+var barrel_spawner
+
 var time_since_ground : float
 
 func _process(delta):
@@ -45,8 +45,13 @@ func _physics_process(delta):
 func _on_incorrect_barrel_body_entered(body):
 	if body.get_meta("type") == "correct_barrel":
 		lives -= 1
-		#questions.generate_question()
-		body.queue_free()
+		barrel_spawner = body.get_parent().get_parent()
+		barrel_spawner.next_question()
+		var barrels = body.get_parent()
+		for node in barrels.get_children():
+			node.queue_free()
+		barrels.queue_free()
+	
 	if body.get_meta("type") == "incorrect_barrel":
 		body.queue_free()
 		#questions.generate_question()
@@ -56,11 +61,17 @@ func _on_incorrect_barrel_body_entered(body):
 
 
 func _on_correct_barrel_body_entered(body):
-	if body.get_meta("type") == "correct_barrel":
-		body.queue_free()
-		#questions.generate_question()
 	if body.get_meta("type") == "incorrect_barrel":
 		lives -= 1
 		body.queue_free()
+	if body.get_meta("type") == "correct_barrel":
+		barrel_spawner = body.get_parent().get_parent()
+		barrel_spawner.next_question()
+		var barrels = body.get_parent()
+		print(barrels.get_children())
+		for node in barrels.get_children():
+			node.queue_free()
+		barrels.queue_free()
+
 	if lives <= 0:
 		get_parent().queue_free()
