@@ -38,9 +38,9 @@ scale = Vector2(4, 4)
 script = ExtResource("3_x2t0x")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 93.75
+offset_left = 10.0
 offset_top = 39.0
-offset_right = 199.75
+offset_right = 279.0
 offset_bottom = 62.0
 text = "2+4=?"
 metadata/_edit_group_ = true

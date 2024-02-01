@@ -8,9 +8,9 @@
 			"question_type": "Multiplication"
 		},
 		"question_type_2": {
-			"range_one_low": 0,
-			"range_one_high": 144,
-			"range_two_low": 1,
+			"range_one_low": 1,
+			"range_one_high": 12,
+			"range_two_low": 0,
 			"range_two_high": 12,
 			"question_type": "Division"
 		}
@@ -41,9 +41,11 @@
 	"curriculum_3": {
 		"question_type_1": {
 			"range_one_low": 1,
-			"range_one_high": 10,
+			"range_one_high": 4,
 			"range_two_low": 1,
-			"range_two_high": 50,
+			"range_two_high": 5,
+			"mult_factor_range_low": 2,
+			"mult_factor_range_high": 10,
 			"question_type": "Fraction Simplify"
 		},
 		"question_type_2": {
