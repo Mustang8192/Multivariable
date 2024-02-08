@@ -86,32 +86,36 @@
 	},
 	"curriculum_4": {
 		"question_type_1": {
-			"range_one_low": 12,
-			"range_one_high": 96,
+			"range_one_low": 1,
+			"range_one_high": 8,
 			"range_two_low": 0,
 			"range_two_high": 0,
-			"question_type": "Inches/Feet Conversion"
+			"question_type": "Conversion",
+			"conversion_type": "Inches/Feet"
 		},
 		"question_type_2": {
-			"range_one_low": 3,
-			"range_one_high": 45,
+			"range_one_low": 1,
+			"range_one_high": 15,
 			"range_two_low": 0,
 			"range_two_high": 0,
-			"question_type": "Feet/Yards Conversion"
+			"question_type": "Conversion",
+			"conversion_type": "Feet/Yards"
 		},
 		"question_type_3": {
-			"range_one_low": 1000,
-			"range_one_high": 20000,
+			"range_one_low": 1,
+			"range_one_high": 20,
 			"range_two_low": 0,
 			"range_two_high": 0,
-			"question_type": "Meter/Kilometers Conversion"
+			"question_type": "Conversion",
+			"conversion_type": "Meter/Kilometers"
 		},
 		"question_type_4": {
-			"range_one_low": 100,
-			"range_one_high": 2000,
+			"range_one_low": 1,
+			"range_one_high": 20,
 			"range_two_low": 0,
 			"range_two_high": 0,
-			"question_type": "Centimeters/Meters Conversion"
+			"question_type": "Conversion",
+			"conversion_type": "Centimeters/Meters"
 		},
 		"question_type_5": {
 			"range_one_low": 10,

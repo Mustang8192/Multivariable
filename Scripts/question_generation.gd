@@ -5,7 +5,7 @@ var body
 var json_file_path = "res://Data/curriculums.json"
 var curriculum_data
 var curriculums = {}
-var current_level = 2
+var current_level = 3
 
 var label: RichTextLabel
 
@@ -34,28 +34,33 @@ func generate_question():
 	var question_count = 0
 	for key in current_curriculum:
 		question_count+=1
-	var question = current_curriculum["question_type_2"]# + str(randi_range(1, question_count))]
+	var question: Question = Question.new(current_curriculum["question_type_4"]) # + str(randi_range(1, question_count))]
 	var question_info: Dictionary
-	match question["question_type"]:
+	match question.type:
 		"Addition":
-			question_info = questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenAdd(question)
 		"Subtraction":
-			question_info = questionGenAdd(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenSubtract(question)
 		"Division":
-			question_info = questionGenDivide(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenDivide(question)
 		"Multiplication":
-			question_info = questionGenMultiply(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
+			question_info = questionGenMultiply(question)
 		"Fraction Simplify":
-			question_info = questionGenFractionSimplify(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"], question["mult_factor_range_low"], question["mult_factor_range_high"])
+			question_info = questionGenFractionSimplify(question)
 		"Fraction Conversion":
-			question_info = questionGenFractionConversion(question["range_one_low"], question["range_one_high"], question["range_two_low"], question["range_two_high"])
-	print(question["question_type"])
+			question_info = questionGenFractionConversion(question)
+		"Rounding":
+			question_info = questionGenRound(question)
+		"Comparing":
+			question_info = questionGenCompare(question)
+		"Conversion":
+			question_info = questionGenConvertUnits(question)
 	return question_info
 
-func questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
+func questionGenAdd(question: Question):
 	print("Generating Addition Problem")
-	var val1 = randi_range(rand1_low, rand1_high)
-	var val2 = randi_range(rand2_low, rand2_high)
+	var val1 = question.random_val1()
+	var val2 = question.random_val2()
 	var text: String
 	
 	var answer = val1 + val2
@@ -66,9 +71,9 @@ func questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
 	var wrong2 = answer
 	
 	while wrong1 == answer:
-		wrong1 = randi_range(rand1_low, rand1_high) + randi_range(rand1_low, rand1_high)
+		wrong1 = question.random_val1() + question.random_val2()
 	while wrong2 == answer or wrong2 == wrong1:
-		wrong2 = randi_range(rand1_low, rand1_high) + randi_range(rand1_low, rand1_high)
+		wrong2 = question.random_val1() + question.random_val2()
 	
 	print(str(text))
 	return {
@@ -80,10 +85,10 @@ func questionGenAdd(rand1_low, rand1_high, rand2_low, rand2_high):
 		"wrong_2": str(wrong2)
 	}
 	
-func questionGenSubtract(rand1_low, rand1_high, rand2_low, rand2_high):
+func questionGenSubtract(question: Question):
 	print("Generating Subtraction Problem")
-	var val1 = randi_range(rand1_low, rand1_high)
-	var val2 = randi_range(rand2_low, rand2_high)
+	var val1 = question.random_val1()
+	var val2 = question.random_val2()
 	var text: String
 	
 	var answer = val1 - val2
@@ -94,9 +99,9 @@ func questionGenSubtract(rand1_low, rand1_high, rand2_low, rand2_high):
 	var wrong2 = answer
 	
 	while wrong1 == answer:
-		wrong1 = randi_range(rand1_low, rand1_high) - randi_range(rand1_low, rand1_high)
+		wrong1 = question.random_val1() - question.random_val2()
 	while wrong2 == answer or wrong2 == wrong1:
-		wrong2 = randi_range(rand1_low, rand1_high) - randi_range(rand1_low, rand1_high)
+		wrong2 = question.random_val1() - question.random_val2()
 	
 	print(str(text))
 	return {
@@ -108,10 +113,10 @@ func questionGenSubtract(rand1_low, rand1_high, rand2_low, rand2_high):
 		"wrong_2": str(wrong2)
 	}
 
-func questionGenDivide(rand1_low, rand1_high, rand2_low, rand2_high):
+func questionGenDivide(question: Question):
 	print("Generating Division Problem")
-	var divisor = randi_range(rand1_low, rand1_high)
-	var quotient = randi_range(rand2_low, rand2_high)
+	var divisor = question.random_val1()
+	var quotient = question.random_val2()
 	var text: String
 	
 	var dividend = divisor * quotient
@@ -122,9 +127,9 @@ func questionGenDivide(rand1_low, rand1_high, rand2_low, rand2_high):
 	var wrong2 = quotient
 	
 	while wrong1 == quotient:
-		wrong1 = randi_range(rand1_low, rand1_high)
+		wrong1 = question.random_val1()
 	while wrong2 == quotient or wrong2 == wrong1:
-		wrong2 = randi_range(rand1_low, rand1_high)
+		wrong2 = question.random_val1()
 	
 	print(str(text))
 	return {
@@ -136,10 +141,10 @@ func questionGenDivide(rand1_low, rand1_high, rand2_low, rand2_high):
 		"wrong_2": str(wrong2)
 	}
 	
-func questionGenMultiply(rand1_low, rand1_high, rand2_low, rand2_high):
+func questionGenMultiply(question: Question):
 	print("Generating Multiplication Problem")
-	var val1 = randi_range(rand1_low, rand1_high)
-	var val2 = randi_range(rand2_low, rand2_high)
+	var val1 = question.random_val1()
+	var val2 = question.random_val2()
 	var text: String
 	
 	var answer = val1 * val2
@@ -150,9 +155,9 @@ func questionGenMultiply(rand1_low, rand1_high, rand2_low, rand2_high):
 	var wrong2 = answer
 	
 	while wrong1 == answer:
-		wrong1 = randi_range(rand1_low, rand1_high) * randi_range(rand1_low, rand1_high)
+		wrong1 = question.random_val1() * question.random_val2()
 	while wrong2 == answer or wrong2 == wrong1:
-		wrong2 = randi_range(rand1_low, rand1_high) * randi_range(rand1_low, rand1_high)
+		wrong2 = question.random_val1() * question.random_val2()
 	
 	print(str(text))
 	return {
@@ -164,11 +169,11 @@ func questionGenMultiply(rand1_low, rand1_high, rand2_low, rand2_high):
 		"wrong_2": str(wrong2)
 	}
 	
-func questionGenFractionSimplify(rand1_low, rand1_high, rand2_low, rand2_high, multiply_low, multipy_high):
+func questionGenFractionSimplify(question: Question):
 	print("Generating Fraction Simplification Problem")
-	var val1 = randi_range(rand1_low, rand1_high)
-	var val2 = randi_range(rand2_low, rand2_high)
-	var multi = randi_range(multiply_low, multipy_high)
+	var val1 = question.random_val2()
+	var val2 = question.random_val2()
+	var multi = question.random_mult()
 	var text: String
 	
 	print("Value 1: " + str(val1))
@@ -189,18 +194,18 @@ func questionGenFractionSimplify(rand1_low, rand1_high, rand2_low, rand2_high, m
 	var wrong1 = str(val1) + "/" + str(val2)
 	var wrong2 = str(val1) + "/" + str(val2)
 	
-	var wrong1_val1 = randi_range(rand1_low, rand1_high)
-	var wrong1_val2 = randi_range(rand1_low, rand1_high)
-	var wrong2_val1 = randi_range(rand1_low, rand1_high)
-	var wrong2_val2 = randi_range(rand1_low, rand1_high)
+	var wrong1_val1 = question.random_val1()
+	var wrong1_val2 = question.random_val1()
+	var wrong2_val1 = question.random_val1()
+	var wrong2_val2 = question.random_val1()
 	
 	while wrong1 == answer or wrong1_val1/wrong1_val2 == val1/val2:
-		wrong1_val1 = randi_range(rand1_low, rand1_high)
-		wrong1_val2 = randi_range(rand1_low, rand1_high)
+		wrong1_val1 = question.random_val1()
+		wrong1_val2 = question.random_val1()
 		wrong1 = str(wrong1_val1) + "/" + str(wrong1_val2)
 	while wrong2 == answer or wrong2_val1/wrong2_val2 == wrong1_val1/wrong1_val2 or wrong2_val1/wrong2_val2 == val1/val2:
-		wrong2_val1 = randi_range(rand1_low, rand1_high)
-		wrong2_val2 = randi_range(rand1_low, rand1_high)
+		wrong2_val1 = question.random_val1()
+		wrong2_val2 = question.random_val1()
 		wrong2 = str(wrong2_val1) + "/" + str(wrong2_val2)
 	
 	print(str(text))
@@ -213,16 +218,16 @@ func questionGenFractionSimplify(rand1_low, rand1_high, rand2_low, rand2_high, m
 		"wrong_2": wrong2
 	}
 	
-func questionGenFractionConversion(rand1_low, rand1_high, rand2_low, rand2_high):
+func questionGenFractionConversion(question: Question):
 	print("Generating Fraction Conversion Problem")
 	var type = randi_range(0,1) #0 means mixed number to improper fraction, 1 means improper to mixed
 	
 	# val1 will be the larger number and the numerator; val2 will be smaller, the denominator
-	var val1 = randi_range(rand1_low, rand1_high)
-	var val2 = randi_range(rand2_low, rand2_high)
+	var val1 = question.random_val1()
+	var val2 = question.random_val2()
 	
 	while val1 == val2:
-		val2 = randi_range(rand2_low, rand2_high)
+		val2 = question.random_val2()
 	
 	if val1 < val2:
 		var temp = val1
@@ -275,19 +280,19 @@ func questionGenFractionConversion(rand1_low, rand1_high, rand2_low, rand2_high)
 	var wrong2 = answer
 	
 	while wrong1_val1/wrong1_val2 == val1/val2:
-		wrong1_val1 = randi_range(rand1_low, rand1_high)
-		wrong1_val2 = randi_range(rand1_low, rand1_high)
+		wrong1_val1 = question.random_val1()
+		wrong1_val2 = question.random_val2()
 		while wrong1_val1 == wrong1_val2:
-			wrong1_val2 = randi_range(rand2_low, rand2_high)
+			wrong1_val2 = question.random_val2()
 		if wrong1_val1 < wrong1_val2:
 			var temp = wrong1_val1
 			wrong1_val1 = wrong1_val2
 			wrong1_val2 = temp
 	while wrong2_val1/wrong2_val2 == wrong1_val1/wrong1_val2 or wrong2_val1/wrong2_val2 == val1/val2:
-		wrong2_val1 = randi_range(rand1_low, rand1_high)
-		wrong2_val2 = randi_range(rand1_low, rand1_high)
+		wrong2_val1 = question.random_val1()
+		wrong2_val2 = question.random_val2()
 		while wrong2_val1 == wrong2_val2:
-			wrong2_val2 = randi_range(rand2_low, rand2_high)
+			wrong2_val2 = question.random_val2()
 		if wrong2_val1 < wrong2_val2:
 			var temp = wrong2_val1
 			wrong2_val1 = wrong2_val2
@@ -318,6 +323,80 @@ func questionGenFractionConversion(rand1_low, rand1_high, rand2_low, rand2_high)
 		"answer": answer,
 		"wrong_1": wrong1,
 		"wrong_2": wrong2
+	}
+
+func questionGenRound(question: Question):
+	print("Generating Rounding Problem")
+	var val1 = round(question.randf_val1() * 10)/10
+	var text: String
+	
+	var answer = round(val1)
+
+	text = "Round " + str(val1) + " to the nearest 1: "
+	
+	var wrong1 = answer + 1
+	var wrong2 = answer - 1
+	
+	print(str(text))
+	return {
+		"text": text,
+		"value_1": val1,
+		"value_2": 0,
+		"answer": str(answer),
+		"wrong_1": str(wrong1),
+		"wrong_2": str(wrong2)
+	}
+
+func questionGenCompare(question: Question):
+	print("Generating Comparison Problem")
+	var val1 = round(question.randf_val1() * 10)/10
+	var val2 = round(question.randf_val2() * 10)/10
+	var text: String
+	
+
+	text = "Is " + str(val1) + " greater than, less than, or equal to " + str(val2)
+	
+	var answer = ("=" if val1 == val2
+	else ">" if val1 > val2
+	else "<" if val1 < val2
+	else "I'm the right one!")
+	var wrong1 = (">" if answer == "=" else "=")
+	var wrong2 = ("<" if answer != "<" else ">")
+	
+	print(str(text))
+	return {
+		"text": text,
+		"value_1": val1,
+		"value_2": 0,
+		"answer": answer,
+		"wrong_1": wrong1,
+		"wrong_2": wrong2
+	}
+
+func questionGenConvertUnits(question: Question):
+	print("Generating Unit Conversion Problem")
+	var answer = question.random_val1()
+
+	var val1 = answer * question.conversion_factor
+
+	var text: String = "Convert " + str(val1) + " " + question.units_in + " to " + question.units_to
+	
+	var wrong1 = question.random_val1()
+	var wrong2 = question.random_val1()
+	
+	while wrong1 == answer:
+		wrong1 = question.random_val1()
+	while wrong2 == answer or wrong2 == wrong1:
+		wrong2 = question.random_val1()
+	
+	print(str(text))
+	return {
+		"text": text,
+		"value_1": val1,
+		"value_2": 0,
+		"answer": str(answer),
+		"wrong_1": str(wrong1),
+		"wrong_2": str(wrong2)
 	}
 
 func set_label_text(text: String):
