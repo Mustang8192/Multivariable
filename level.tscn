@@ -1,34 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=11 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
+[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="1_pu8jf"]
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
 [ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="3_3fe72"]
 [ext_resource type="Script" path="res://Scripts/question_generation.gd" id="3_x2t0x"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="4_8lrig"]
 [ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_urlo3"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_cmaen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
-size = Vector2(1157, 20)
+size = Vector2(1609.5, 48.0553)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
-size = Vector2(10, 650)
+size = Vector2(17, 1197)
 
 [node name="Level" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(801, 601)
+texture = ExtResource("1_pu8jf")
+
 [node name="Player" parent="." instance=ExtResource("1_6y14x")]
-position = Vector2(577, 384)
+position = Vector2(304, 1057)
 scale = Vector2(3, 3)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(90.3333, -63)
+scale = Vector2(0.333333, 0.333333)
+script = ExtResource("8_cmaen")
+
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(575, 534)
+position = Vector2(575, 547)
 metadata/type = "floor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(206, 567)
+rotation = -0.0314159
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
+offset_left = 8.0
 offset_top = 1.0
-offset_right = 81.0
+offset_right = 89.0
 offset_bottom = 41.0
 text = "Lives: 3"
 script = ExtResource("4_8lrig")
@@ -38,10 +52,10 @@ scale = Vector2(3.5, 3.5)
 script = ExtResource("3_x2t0x")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 4.0
-offset_top = 37.0
-offset_right = 324.0
-offset_bottom = 60.0
+offset_left = 320.286
+offset_top = 19.7143
+offset_right = 640.286
+offset_bottom = 42.7143
 text = "2+4=?"
 scroll_active = false
 metadata/_edit_group_ = true
@@ -58,15 +72,16 @@ autostart = true
 [node name="Wall (Left)" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Left)"]
-position = Vector2(2.08165e-12, 325)
+position = Vector2(-13.5, 594)
 shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
 
 [node name="Wall (Right)" type="StaticBody2D" parent="."]
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Right)"]
-position = Vector2(1150, 325)
+position = Vector2(1604, 599.5)
 shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
