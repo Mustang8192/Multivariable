@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=11 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
 [ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="1_pu8jf"]
-[ext_resource type="Texture2D" uid="uid://c45uy6hr67td5" path="res://Black.png.webp" id="1_t37t3"]
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
 [ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="3_3fe72"]
 [ext_resource type="Script" path="res://Scripts/question_generation.gd" id="3_x2t0x"]
@@ -11,17 +10,12 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_cmaen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
-size = Vector2(1595.87, 57.9921)
+size = Vector2(1590.13, 57.9921)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
 size = Vector2(17, 1197)
 
 [node name="Level" type="Node2D"]
-
-[node name="Black_png" type="Sprite2D" parent="."]
-position = Vector2(808, 686.5)
-scale = Vector2(13.2091, 7.49545)
-texture = ExtResource("1_t37t3")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(801, 601)
@@ -32,12 +26,16 @@ position = Vector2(304, 1057)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+texture_filter = 2
 position = Vector2(90.3333, -63)
 scale = Vector2(0.333333, 0.333333)
 limit_left = 0
 limit_top = 0
 limit_right = 1600
 limit_bottom = 1200
+position_smoothing_enabled = true
+position_smoothing_speed = 40.0
+drag_vertical_enabled = true
 editor_draw_limits = true
 script = ExtResource("8_cmaen")
 
@@ -46,7 +44,7 @@ position = Vector2(575, 547)
 metadata/type = "floor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(223.535, 566.449)
+position = Vector2(226.401, 566.359)
 rotation = -0.0314159
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_68eh2")
