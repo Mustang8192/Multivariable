@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://csbjt7m57x4v0"]
 
-[ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
-[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="1_pu8jf"]
-[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
-[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="3_3fe72"]
-[ext_resource type="Script" path="res://Scripts/question_generation.gd" id="3_x2t0x"]
-[ext_resource type="Script" path="res://Scripts/lives.gd" id="4_8lrig"]
-[ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_urlo3"]
-[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_cmaen"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
+[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="2_88ban"]
+[ext_resource type="Script" path="res://Scripts/lives.gd" id="3_gjopc"]
+[ext_resource type="Script" path="res://Scripts/question_generation.gd" id="4_k24xk"]
+[ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_0t1ok"]
+[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="6_gv2j4"]
+[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="7_3y0e6"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(1609.5, 48.0553)
@@ -16,19 +16,11 @@ size = Vector2(1609.5, 48.0553)
 size = Vector2(17, 1197)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_ukpym")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(801, 601)
-texture = ExtResource("1_pu8jf")
-
-[node name="Player" parent="." instance=ExtResource("1_6y14x")]
-position = Vector2(304, 1057)
-scale = Vector2(3, 3)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(90.3333, -63)
-scale = Vector2(0.333333, 0.333333)
-script = ExtResource("8_cmaen")
+texture = ExtResource("2_88ban")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(575, 547)
@@ -40,15 +32,17 @@ rotation = -0.0314159
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 89.0
 offset_bottom = 41.0
 text = "Lives: 3"
-script = ExtResource("4_8lrig")
+script = ExtResource("3_gjopc")
 
 [node name="Question" type="Node2D" parent="."]
-script = ExtResource("3_x2t0x")
+unique_name_in_owner = true
+script = ExtResource("4_k24xk")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
 offset_left = 4.0
@@ -61,9 +55,10 @@ scroll_active = false
 metadata/_edit_group_ = true
 
 [node name="BarrelSpawner" type="Node2D" parent="."]
-script = ExtResource("5_urlo3")
-incorrect_barrel_scene = ExtResource("3_3fe72")
-correct_barrel_scene = ExtResource("2_vt2sl")
+unique_name_in_owner = true
+script = ExtResource("5_0t1ok")
+incorrect_barrel_scene = ExtResource("6_gv2j4")
+correct_barrel_scene = ExtResource("7_3y0e6")
 
 [node name="Timer" type="Timer" parent="BarrelSpawner"]
 wait_time = 5.0
@@ -85,5 +80,10 @@ position = Vector2(1604, 599.5)
 shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 868)
+scale = Vector2(0.999999, 0.999999)
+script = ExtResource("8_gl2ah")
 
 [connection signal="timeout" from="BarrelSpawner/Timer" to="BarrelSpawner" method="_on_timer_timeout"]
