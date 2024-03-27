@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
-size = Vector2(1609.5, 48.0553)
+size = Vector2(1590.13, 57.9921)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
 size = Vector2(17, 1197)
@@ -20,23 +20,53 @@ script = ExtResource("1_ukpym")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(801, 601)
+<<<<<<< HEAD:Scenes/level.tscn
 texture = ExtResource("2_88ban")
+=======
+texture = ExtResource("1_pu8jf")
+
+[node name="Player" parent="." instance=ExtResource("1_6y14x")]
+position = Vector2(304, 1057)
+scale = Vector2(3, 3)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+texture_filter = 2
+position = Vector2(90.3333, -63)
+scale = Vector2(0.333333, 0.333333)
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 1200
+position_smoothing_enabled = true
+position_smoothing_speed = 40.0
+drag_vertical_enabled = true
+editor_draw_limits = true
+script = ExtResource("8_cmaen")
+>>>>>>> main:level.tscn
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(575, 547)
 metadata/type = "floor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(206, 567)
+position = Vector2(226.401, 566.359)
 rotation = -0.0314159
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
+<<<<<<< HEAD:Scenes/level.tscn
 unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 89.0
 offset_bottom = 41.0
+=======
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 112.0
+offset_bottom = 70.0
+>>>>>>> main:level.tscn
 text = "Lives: 3"
 script = ExtResource("3_gjopc")
 
@@ -45,10 +75,10 @@ unique_name_in_owner = true
 script = ExtResource("4_k24xk")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 4.0
-offset_top = 37.0
-offset_right = 679.0
-offset_bottom = 214.0
+offset_left = 1062.0
+offset_top = 18.0
+offset_right = 1737.0
+offset_bottom = 195.0
 theme_override_font_sizes/normal_font_size = 40
 text = "2+4=?"
 scroll_active = false
