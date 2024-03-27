@@ -1,9 +1,12 @@
 extends RichTextLabel
+class_name LivesCounter
 
-var player
+var player: Player
 
-func _ready():
-	player = get_tree().root.get_child(0).get_node("Player")
+func set_player(_player: Player):
+	player = _player
 
 func _process(delta):
+	if player == null:
+		return
 	text = "Lives: " + str(player.get_meta("lives"))

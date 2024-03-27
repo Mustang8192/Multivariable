@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 #const Generator = preload("res://Scripts/question_generation.gd")
 #var questions = Generator.new()
 
