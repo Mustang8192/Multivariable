@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://csbjt7m57x4v0"]
 
+<<<<<<< HEAD:Scenes/level.tscn
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
 [ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="2_88ban"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="3_gjopc"]
@@ -11,12 +12,28 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(1590.13, 57.9921)
+=======
+[ext_resource type="PackedScene" uid="uid://boshkkqunxhsr" path="res://player.tscn" id="1_6y14x"]
+[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="1_pu8jf"]
+[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="2_vt2sl"]
+[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="3_3fe72"]
+[ext_resource type="Script" path="res://Scripts/question_generation.gd" id="3_x2t0x"]
+[ext_resource type="Script" path="res://Scripts/lives.gd" id="4_8lrig"]
+[ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_urlo3"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_cmaen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
+size = Vector2(1609.5, 48.0553)
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
 size = Vector2(17, 1197)
 
 [node name="Level" type="Node2D"]
+<<<<<<< HEAD:Scenes/level.tscn
 script = ExtResource("1_ukpym")
+=======
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(801, 601)
@@ -33,6 +50,7 @@ scale = Vector2(3, 3)
 texture_filter = 2
 position = Vector2(90.3333, -63)
 scale = Vector2(0.333333, 0.333333)
+<<<<<<< HEAD:Scenes/level.tscn
 limit_left = 0
 limit_top = 0
 limit_right = 1600
@@ -41,6 +59,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 40.0
 drag_vertical_enabled = true
 editor_draw_limits = true
+=======
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 script = ExtResource("8_cmaen")
 >>>>>>> main:level.tscn
 
@@ -49,24 +69,33 @@ position = Vector2(575, 547)
 metadata/type = "floor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+<<<<<<< HEAD:Scenes/level.tscn
 position = Vector2(226.401, 566.359)
+=======
+position = Vector2(206, 567)
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 rotation = -0.0314159
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
 <<<<<<< HEAD:Scenes/level.tscn
+<<<<<<< HEAD:Scenes/level.tscn
 unique_name_in_owner = true
+=======
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 89.0
 offset_bottom = 41.0
+<<<<<<< HEAD:Scenes/level.tscn
 =======
 offset_left = 16.0
 offset_top = 15.0
 offset_right = 112.0
 offset_bottom = 70.0
 >>>>>>> main:level.tscn
+=======
+>>>>>>> parent of 9d18ed2 (Camera):level.tscn
 text = "Lives: 3"
 script = ExtResource("3_gjopc")
 
@@ -75,10 +104,10 @@ unique_name_in_owner = true
 script = ExtResource("4_k24xk")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 1062.0
-offset_top = 18.0
-offset_right = 1737.0
-offset_bottom = 195.0
+offset_left = 4.0
+offset_top = 37.0
+offset_right = 679.0
+offset_bottom = 214.0
 theme_override_font_sizes/normal_font_size = 40
 text = "2+4=?"
 scroll_active = false
