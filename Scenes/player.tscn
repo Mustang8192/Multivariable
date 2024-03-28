@@ -21,7 +21,7 @@ metadata/type = "player"
 
 [node name="Mario" type="Sprite2D" parent="."]
 position = Vector2(-1.37, 0)
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_4geug")
 
 [node name="Incorrect Barrel" type="Area2D" parent="."]

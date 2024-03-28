@@ -10,16 +10,17 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
-size = Vector2(1609.5, 48.0553)
+size = Vector2(2171.48, 49.5406)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
-size = Vector2(17, 1197)
+size = Vector2(20.5, 1617.5)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ukpym")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(801, 601)
+position = Vector2(575, 865.5)
+scale = Vector2(1.34956, 1.33527)
 texture = ExtResource("2_88ban")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -27,16 +28,17 @@ position = Vector2(575, 547)
 metadata/type = "floor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(206, 567)
+position = Vector2(-1.42834, 985.862)
 rotation = -0.0314159
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 89.0
-offset_bottom = 41.0
+offset_left = -477.0
+offset_top = 91.0
+offset_right = -396.0
+offset_bottom = 131.0
 text = "Lives: 3"
 script = ExtResource("3_gjopc")
 
@@ -45,10 +47,10 @@ unique_name_in_owner = true
 script = ExtResource("4_k24xk")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 4.0
-offset_top = 37.0
-offset_right = 679.0
-offset_bottom = 214.0
+offset_left = 914.0
+offset_top = 81.0
+offset_right = 1589.0
+offset_bottom = 258.0
 theme_override_font_sizes/normal_font_size = 40
 text = "2+4=?"
 scroll_active = false
@@ -67,7 +69,7 @@ autostart = true
 [node name="Wall (Left)" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Left)"]
-position = Vector2(-13.5, 594)
+position = Vector2(-510, 882)
 shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
@@ -76,7 +78,7 @@ debug_color = Color(0.988235, 0, 0, 1)
 position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Right)"]
-position = Vector2(1604, 599.5)
+position = Vector2(1666.75, 870.25)
 shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
