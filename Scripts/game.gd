@@ -14,6 +14,7 @@ var main_menu: MainMenu
 var tutorial_screen
 var char_select_screen
 
+var char_index: int
 
 func _ready():
 	instantiate_main_menu()
@@ -40,6 +41,7 @@ func show_char_select():
 	char_select_screen = char_select_scene.instantiate()
 	UI.add_child(char_select_screen)
 	char_select_screen.back_to_main.connect(back_to_main)
+	char_select_screen.character_select.connect(select_character)
 	
 func show_tutorial():
 	main_menu.queue_free()
@@ -55,3 +57,6 @@ func back_to_main():
 		char_select_screen.queue_free()
 		char_select_screen = null
 	instantiate_main_menu()
+	
+func select_character(index):
+	char_index = index as int

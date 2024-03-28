@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkd0yaiphpt2s"]
+[gd_scene load_steps=5 format=3 uid="uid://dkd0yaiphpt2s"]
 
 [ext_resource type="Script" path="res://Scripts/char_select.gd" id="1_8xukg"]
-[ext_resource type="Texture2D" uid="uid://ds4fny1ln0c76" path="res://Sprites/Character Select Horizontal.png" id="2_j812d"]
+[ext_resource type="Texture2D" uid="uid://boow0b2c6axjv" path="res://Sprites/Horizontal Character Select Screen.png" id="2_i414j"]
+[ext_resource type="Texture2D" uid="uid://b8vrqqggutvn1" path="res://Sprites/Characters.png" id="3_hq0as"]
+[ext_resource type="Script" path="res://Scripts/cs_sprite.gd" id="4_u6v63"]
 
 [node name="char_select" type="Control"]
 layout_mode = 3
@@ -12,17 +14,89 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8xukg")
 
+[node name="CharacterSelectHorizontal" type="Sprite2D" parent="."]
+position = Vector2(1082.5, 820)
+scale = Vector2(1.51655, 1.5239)
+texture = ExtResource("2_i414j")
+
 [node name="back" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 584.0
-offset_top = 869.0
-offset_right = 847.0
-offset_bottom = 939.0
+offset_left = 928.0
+offset_top = 1373.0
+offset_right = 1347.0
+offset_bottom = 1477.0
 text = "back"
 
-[node name="CharacterSelectHorizontal" type="Sprite2D" parent="."]
-position = Vector2(1080, 810)
-scale = Vector2(1.90893, 1.92272)
-texture = ExtResource("2_j812d")
+[node name="select" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 938.0
+offset_top = 1066.0
+offset_right = 1325.0
+offset_bottom = 1269.0
+
+[node name="right" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1302.0
+offset_top = 832.0
+offset_right = 1414.0
+offset_bottom = 950.0
+
+[node name="left" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 858.0
+offset_top = 829.0
+offset_right = 960.0
+offset_bottom = 948.0
+
+[node name="mario" type="Sprite2D" parent="."]
+position = Vector2(1135, 477)
+scale = Vector2(1.894, 1.894)
+texture = ExtResource("3_hq0as")
+region_enabled = true
+region_rect = Rect2(34.4, 33.242, 249, 307)
+script = ExtResource("4_u6v63")
+
+[node name="toad" type="Sprite2D" parent="."]
+position = Vector2(-372, 456)
+scale = Vector2(1.894, 1.894)
+texture = ExtResource("3_hq0as")
+region_enabled = true
+region_rect = Rect2(527, 21.436, 253, 266)
+script = ExtResource("4_u6v63")
+id = 1
+
+[node name="peach" type="Sprite2D" parent="."]
+position = Vector2(313, 422)
+scale = Vector2(1.894, 1.894)
+texture = ExtResource("3_hq0as")
+region_enabled = true
+region_rect = Rect2(23, 396, 249, 358)
+script = ExtResource("4_u6v63")
+id = 2
+
+[node name="koopa" type="Sprite2D" parent="."]
+position = Vector2(1851, 467)
+scale = Vector2(1.894, 1.894)
+texture = ExtResource("3_hq0as")
+region_enabled = true
+region_rect = Rect2(545, 316, 255, 321)
+script = ExtResource("4_u6v63")
+id = 3
+
+[node name="bowser" type="Sprite2D" parent="."]
+position = Vector2(2591, 429)
+scale = Vector2(1.894, 1.894)
+texture = ExtResource("3_hq0as")
+region_enabled = true
+region_rect = Rect2(425.8, 698.3, 373, 364)
+script = ExtResource("4_u6v63")
+id = 4
 
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="select" to="." method="_on_select_button_down"]
+[connection signal="button_down" from="right" to="." method="_on_right_button_down"]
+[connection signal="button_down" from="left" to="." method="_on_left_button_down"]
