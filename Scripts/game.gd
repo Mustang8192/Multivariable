@@ -42,6 +42,7 @@ func show_char_select():
 	UI.add_child(char_select_screen)
 	char_select_screen.back_to_main.connect(back_to_main)
 	char_select_screen.character_select.connect(select_character)
+	char_select_screen.char_index = char_index
 	
 func show_tutorial():
 	main_menu.queue_free()
