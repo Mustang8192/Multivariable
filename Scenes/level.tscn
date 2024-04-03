@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=16 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
 [ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="2_88ban"]
@@ -15,6 +15,21 @@ size = Vector2(2171.48, 49.5406)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
 size = Vector2(20.5, 1617.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nksx0"]
+size = Vector2(1550.34, 78.4309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw1es"]
+size = Vector2(1592.5, 65.5002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbqfe"]
+size = Vector2(1466, 69.0001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jag"]
+size = Vector2(1619.1, 79.868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ine4x"]
+size = Vector2(1686.76, 69.7973)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ukpym")
 
@@ -30,7 +45,6 @@ metadata/type = "floor"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(-1.42834, 985.862)
 rotation = -0.0314159
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_68eh2")
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
@@ -83,9 +97,52 @@ shape = SubResource("RectangleShape2D_e7sk1")
 one_way_collision_margin = 0.0
 debug_color = Color(0.988235, 0, 0, 1)
 
+[node name="Floor 3" type="StaticBody2D" parent="."]
+rotation = 2.618
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 3"]
+position = Vector2(-55.373, -1283.86)
+rotation = -2.67908
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nksx0")
+
+[node name="Floor 2" type="StaticBody2D" parent="."]
+position = Vector2(575, 868)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 2"]
+position = Vector2(-4.99998, 469.001)
+rotation = 0.0261799
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jw1es")
+
+[node name="Floor 4" type="StaticBody2D" parent="."]
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 4"]
+position = Vector2(491, 872)
+rotation = 0.0174533
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cbqfe")
+
+[node name="Floor 5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 5"]
+position = Vector2(642, 634)
+rotation = -0.0436332
+shape = SubResource("RectangleShape2D_j6jag")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 868)
 scale = Vector2(0.999999, 0.999999)
 script = ExtResource("8_gl2ah")
+
+[node name="Floor 6" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 6"]
+position = Vector2(422.357, 390.388)
+rotation = 0.0226893
+shape = SubResource("RectangleShape2D_ine4x")
 
 [connection signal="timeout" from="BarrelSpawner/Timer" to="BarrelSpawner" method="_on_timer_timeout"]
