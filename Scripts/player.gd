@@ -11,7 +11,12 @@ var lives = 3
 
 var barrel_spawner
 
+signal lives_out
+
 var time_since_ground : float
+
+func _enter_tree():
+	set_meta("lives", 3)
 
 func _process(delta):
 	set_meta("lives", lives)
@@ -44,6 +49,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_incorrect_barrel_body_entered(body):
+	if !body.has_meta("type"):
+		return
 	if body.get_meta("type") == "correct_barrel":
 		lives -= 1
 		barrel_spawner = body.get_parent().get_parent()
@@ -57,11 +64,13 @@ func _on_incorrect_barrel_body_entered(body):
 		body.queue_free()
 		#questions.generate_question()
 	if lives <= 0:
-		get_parent().queue_free()
+		lives_out.emit()
 
 
 
 func _on_correct_barrel_body_entered(body):
+	if !body.has_meta("type"):
+		return
 	if body.get_meta("type") == "incorrect_barrel":
 		lives -= 1
 		body.queue_free()
@@ -75,4 +84,4 @@ func _on_correct_barrel_body_entered(body):
 		barrels.queue_free()
 
 	if lives <= 0:
-		get_parent().queue_free()
+		lives_out.emit()

@@ -6,8 +6,12 @@ var player: Player
 @onready var question_gen = %Question
 @onready var lives_counter: LivesCounter = %"Lives Counter"
 
-func _ready():
-	if player == null:
-		print("Player not found")
+signal game_over
+
+func _process(delta):
+	if lives_counter.player && barrel_spawner.player:
 		return
-	lives_counter.set_player(player)
+	if player:
+		lives_counter.set_player(player)
+		barrel_spawner.set_player(player)
+		return

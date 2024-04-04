@@ -53,7 +53,7 @@ offset_left = -477.0
 offset_top = 91.0
 offset_right = -396.0
 offset_bottom = 131.0
-text = "Lives: 3"
+text = "Lives: ?"
 script = ExtResource("3_gjopc")
 
 [node name="Question" type="Node2D" parent="."]
@@ -77,6 +77,7 @@ incorrect_barrel_scene = ExtResource("6_gv2j4")
 correct_barrel_scene = ExtResource("7_3y0e6")
 
 [node name="Timer" type="Timer" parent="BarrelSpawner"]
+unique_name_in_owner = true
 wait_time = 5.0
 autostart = true
 
@@ -103,7 +104,6 @@ rotation = 2.618
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 3"]
 position = Vector2(-55.373, -1283.86)
 rotation = -2.67908
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nksx0")
 
 [node name="Floor 2" type="StaticBody2D" parent="."]
@@ -113,17 +113,14 @@ scale = Vector2(0.999999, 0.999999)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 2"]
 position = Vector2(-4.99998, 469.001)
 rotation = 0.0261799
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jw1es")
 
 [node name="Floor 4" type="StaticBody2D" parent="."]
 position = Vector2(6.10352e-05, 0)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 4"]
 position = Vector2(491, 872)
 rotation = 0.0174533
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cbqfe")
 
 [node name="Floor 5" type="StaticBody2D" parent="."]

@@ -12,13 +12,12 @@ var pos3 = Vector2(1100, -200)
 var question_log = []
 var question_index = 0
 
-var question_gen: Node2D
+var player: Player
+@onready var timer: Timer = %Timer
+
+@onready var question_gen: Node2D = %Question
 
 func _ready():
-	for child in get_parent().get_children():
-		if child.name == "Question":
-			question_gen = child
-			break
 	question_log.append(question_gen.generate_question())
 	question_log.append(question_gen.generate_question())
 	question_log.append(question_gen.generate_question())
@@ -41,7 +40,7 @@ func _on_timer_timeout():
 	if question_log.is_empty():
 		question_log.append(question_gen.generate_question())
 		question_index = 0
-		
+	
 	while question_index >= question_log.size():
 		question_log.append(question_gen.generate_question())
 	var info = question_log[question_index]
@@ -69,3 +68,13 @@ func next_question():
 	question_log.append(question_gen.generate_question())
 	question_gen.set_label_text(question_log[0]["text"])
 	question_index -= 1
+
+func pause_spawn():
+	timer.set_paused(true)
+
+func unpause_spawn():
+	timer.set_paused(false)
+
+func set_player(_player: Player):
+	player = _player
+	player.lives_out.connect(pause_spawn)
