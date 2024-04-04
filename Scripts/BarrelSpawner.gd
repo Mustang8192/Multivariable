@@ -39,12 +39,11 @@ func _on_timer_timeout():
 	var i = random.randi() % 3
 	
 	if question_log.is_empty():
-		question_log.apend(question_gen.generate_question())
+		question_log.append(question_gen.generate_question())
 		question_index = 0
 		
-	#if the index gets too big the system fails, which could happen if the player is very slow
-	#we need a failsafe that simply generates another question when that happens
-	
+	while question_index >= question_log.size():
+		question_log.append(question_gen.generate_question())
 	var info = question_log[question_index]
 	question_index += 1
 	
