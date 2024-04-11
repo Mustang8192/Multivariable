@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl5u8wdmypt4n"]
+[gd_scene load_steps=3 format=3 uid="uid://cl5u8wdmypt4n"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_4rg0g"]
+[ext_resource type="Texture2D" uid="uid://c1025kxokp6qy" path="res://Sprites/Horizontal How to Play.png" id="2_1mjxj"]
 
 [node name="tutorial" type="Control"]
 layout_mode = 3
@@ -11,20 +12,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4rg0g")
 
-[node name="back" type="Button" parent="."]
-layout_mode = 0
-offset_left = 570.0
-offset_top = 569.0
-offset_right = 615.0
-offset_bottom = 600.0
-text = "Back"
+[node name="HorizontalHowToPlay" type="Sprite2D" parent="."]
+position = Vector2(1083, 813)
+scale = Vector2(1.51032, 1.50916)
+texture = ExtResource("2_1mjxj")
 
-[node name="label" type="Label" parent="."]
+[node name="back" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 480.0
-offset_top = 191.0
-offset_right = 538.0
-offset_bottom = 214.0
-text = "tutorial"
+offset_left = 1452.0
+offset_top = 1511.0
+offset_right = 1745.0
+offset_bottom = 1630.0
+text = "Back"
 
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]

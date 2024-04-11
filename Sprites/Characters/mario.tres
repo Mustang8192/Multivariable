@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b4kffw662u63n"]
+
+[ext_resource type="Texture2D" uid="uid://doqxju0ib12a3" path="res://Sprites/Characters/mario.png" id="1_doo5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pa8c"]
+atlas = ExtResource("1_doo5s")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1t6n"]
+atlas = ExtResource("1_doo5s")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4rpf"]
+atlas = ExtResource("1_doo5s")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g753m"]
+atlas = ExtResource("1_doo5s")
+region = Rect2(1920, 0, 1920, 1080)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pa8c")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1t6n")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4rpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g753m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

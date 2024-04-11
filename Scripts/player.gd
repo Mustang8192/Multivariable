@@ -15,8 +15,30 @@ signal lives_out
 
 var time_since_ground : float
 
+var char_index: int
+var animated_sprite: AnimatedSprite2D
+
+@export var mario_sprites: SpriteFrames
+@export var toad_sprites: SpriteFrames
+@export var peach_sprites: SpriteFrames
+@export var koopa_sprites: SpriteFrames
+@export var bowser_sprites: SpriteFrames
+
 func _enter_tree():
 	set_meta("lives", 3)
+	animated_sprite = %AnimatedSprite2D
+	match char_index:
+		0:
+			animated_sprite.sprite_frames = mario_sprites
+		1:
+			animated_sprite.sprite_frames = toad_sprites
+		2:
+			animated_sprite.sprite_frames = peach_sprites
+		3:
+			animated_sprite.sprite_frames = koopa_sprites
+		4:
+			animated_sprite.sprite_frames = bowser_sprites
+	animated_sprite.animation = "stand"
 
 func _process(delta):
 	set_meta("lives", lives)

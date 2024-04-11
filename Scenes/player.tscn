@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://boshkkqunxhsr"]
+[gd_scene load_steps=8 format=3 uid="uid://boshkkqunxhsr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fmue2"]
 [ext_resource type="Texture2D" uid="uid://co3ld3hyyv0p8" path="res://Sprites/mario.png" id="2_4geug"]
+[ext_resource type="SpriteFrames" uid="uid://b4kffw662u63n" path="res://Sprites/Characters/mario.tres" id="2_iemdf"]
+[ext_resource type="SpriteFrames" uid="uid://cs8lp5kc8giw3" path="res://Sprites/Characters/toad.tres" id="3_6isk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmiig"]
 
@@ -12,6 +14,11 @@ size = Vector2(20, 22)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_fmue2")
+mario_sprites = ExtResource("2_iemdf")
+toad_sprites = ExtResource("3_6isk1")
+peach_sprites = ExtResource("2_iemdf")
+koopa_sprites = ExtResource("2_iemdf")
+bowser_sprites = ExtResource("2_iemdf")
 metadata/type = "player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,6 +46,12 @@ position = Vector2(-1, 21)
 shape = SubResource("RectangleShape2D_y3kgu")
 metadata/type = "player_collision"
 
-[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_iemdf")
+animation = &"stand"
+offset = Vector2(120, 0)
+
 [connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
+[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Correct Barrel" to="." method="_on_correct_barrel_body_entered"]

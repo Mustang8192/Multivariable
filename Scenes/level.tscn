@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=17 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
 [ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="2_88ban"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="3_gjopc"]
 [ext_resource type="Script" path="res://Scripts/question_generation.gd" id="4_k24xk"]
 [ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_0t1ok"]
+[ext_resource type="FontFile" uid="uid://dvhra1mgppt5u" path="res://Sprites/Fonts/CS Gordon Vintage.otf" id="5_dkw8t"]
 [ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="6_gv2j4"]
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="7_3y0e6"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
@@ -38,6 +39,11 @@ position = Vector2(575, 865.5)
 scale = Vector2(1.34956, 1.33527)
 texture = ExtResource("2_88ban")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 868)
+scale = Vector2(0.999999, 0.999999)
+script = ExtResource("8_gl2ah")
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(575, 547)
 metadata/type = "floor"
@@ -61,10 +67,11 @@ unique_name_in_owner = true
 script = ExtResource("4_k24xk")
 
 [node name="Question" type="RichTextLabel" parent="Question"]
-offset_left = 914.0
-offset_top = 81.0
-offset_right = 1589.0
-offset_bottom = 258.0
+offset_left = 228.0
+offset_top = 655.0
+offset_right = 903.0
+offset_bottom = 832.0
+theme_override_fonts/normal_font = ExtResource("5_dkw8t")
 theme_override_font_sizes/normal_font_size = 40
 text = "2+4=?"
 scroll_active = false
@@ -129,11 +136,6 @@ shape = SubResource("RectangleShape2D_cbqfe")
 position = Vector2(642, 634)
 rotation = -0.0436332
 shape = SubResource("RectangleShape2D_j6jag")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 868)
-scale = Vector2(0.999999, 0.999999)
-script = ExtResource("8_gl2ah")
 
 [node name="Floor 6" type="StaticBody2D" parent="."]
 

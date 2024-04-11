@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cs8lp5kc8giw3"]
+
+[ext_resource type="Texture2D" uid="uid://doyqdwlugn2n4" path="res://Sprites/Characters/toad.png" id="1_qokwp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pujuh"]
+atlas = ExtResource("1_qokwp")
+region = Rect2(1050, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axrxc"]
+atlas = ExtResource("1_qokwp")
+region = Rect2(0, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37613"]
+atlas = ExtResource("1_qokwp")
+region = Rect2(0, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25esd"]
+atlas = ExtResource("1_qokwp")
+region = Rect2(1050, 750, 1050, 750)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pujuh")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axrxc")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37613")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25esd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

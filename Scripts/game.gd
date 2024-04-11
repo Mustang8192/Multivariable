@@ -41,6 +41,7 @@ func instantiate_level():
 	level.add_child(player)
 	level.player = player
 	level.player.lives_out.connect(game_over)
+	level.player.char_index = char_index
 	current_screen = level
 
 func show_char_select():
