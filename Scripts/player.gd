@@ -15,7 +15,7 @@ signal lives_out
 
 var time_since_ground : float
 
-var char_index: int
+var char_index: int = -1
 var animated_sprite: AnimatedSprite2D
 
 @export var mario_sprites: SpriteFrames
@@ -24,21 +24,24 @@ var animated_sprite: AnimatedSprite2D
 @export var koopa_sprites: SpriteFrames
 @export var bowser_sprites: SpriteFrames
 
-func _enter_tree():
+func enter():
 	set_meta("lives", 3)
 	animated_sprite = %AnimatedSprite2D
+	print(char_index)
 	match char_index:
 		0:
-			animated_sprite.sprite_frames = mario_sprites
+			animated_sprite.set_sprite_frames(mario_sprites) 
 		1:
-			animated_sprite.sprite_frames = toad_sprites
+			animated_sprite.set_sprite_frames(toad_sprites)
 		2:
-			animated_sprite.sprite_frames = peach_sprites
+			animated_sprite.set_sprite_frames(peach_sprites)
 		3:
-			animated_sprite.sprite_frames = koopa_sprites
+			animated_sprite.set_sprite_frames(koopa_sprites)
 		4:
-			animated_sprite.sprite_frames = bowser_sprites
+			animated_sprite.set_sprite_frames(bowser_sprites)
 	animated_sprite.animation = "stand"
+	print("Mario: " + str(animated_sprite.get_sprite_frames() == mario_sprites))
+	print("Toad: " + str(animated_sprite.get_sprite_frames() == toad_sprites))
 
 func _process(delta):
 	set_meta("lives", lives)
@@ -56,8 +59,14 @@ func _physics_process(delta):
 		var direction = Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * SPEED
+			if direction < 0:
+				animated_sprite.flip_h = true
+			else:
+				animated_sprite.flip_h = false
+			animated_sprite.play("walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.play("stand")
 	
 	if is_on_floor():
 		#on_floor_last_tick = true
@@ -66,7 +75,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		time_since_ground += delta
-		#on_floor_last_tick = false
+		animated_sprite.play("jump")
 
 	move_and_slide()
 

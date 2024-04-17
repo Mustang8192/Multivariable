@@ -20,6 +20,8 @@ var current_screen
 
 var char_index: int
 
+signal level_loaded()
+
 func _ready():
 	instantiate_main_menu()
 
@@ -42,7 +44,9 @@ func instantiate_level():
 	level.player = player
 	level.player.lives_out.connect(game_over)
 	level.player.char_index = char_index
+	level_loaded.connect(level.player.enter)
 	current_screen = level
+	level_loaded.emit()
 
 func show_char_select():
 	main_menu.queue_free()
