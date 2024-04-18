@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_fc2fh"]
 [ext_resource type="PackedScene" uid="uid://csbjt7m57x4v0" path="res://Scenes/level.tscn" id="2_50lg4"]
-[ext_resource type="Texture2D" uid="uid://cm0qqo81ivf4l" path="res://Sprites/Start Screen No Leaderboard.png" id="3_x37td"]
+[ext_resource type="Texture2D" uid="uid://s42vykqlow0a" path="res://Sprites/Start Screen Horizontal.png" id="3_5sc75"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,37 +11,42 @@ script = ExtResource("1_fc2fh")
 level_scene = ExtResource("2_50lg4")
 
 [node name="StartScreenHorizontal" type="Sprite2D" parent="."]
-position = Vector2(1078.5, 811.5)
-scale = Vector2(1.65045, 1.659)
-texture = ExtResource("3_x37td")
+position = Vector2(1090.77, 808.978)
+scale = Vector2(1.59078, 1.59113)
+texture = ExtResource("3_5sc75")
 
-[node name="start" type="Button" parent="."]
+[node name="start" type="Button" parent="StartScreenHorizontal"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 883.0
-offset_top = 824.0
-offset_right = 1249.0
-offset_bottom = 1001.0
+offset_left = -115.0
+offset_top = -2.0
+offset_right = 104.0
+offset_bottom = 103.0
 text = "start"
 
-[node name="character_select" type="Button" parent="."]
+[node name="character_select" type="Button" parent="StartScreenHorizontal"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 882.0
-offset_top = 1073.0
-offset_right = 1246.0
-offset_bottom = 1257.0
+offset_left = -118.0
+offset_top = 142.0
+offset_right = 107.0
+offset_bottom = 248.0
 text = "character select"
 
-[node name="tutorial" type="Button" parent="."]
+[node name="tutorial" type="Button" parent="StartScreenHorizontal"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 891.0
-offset_top = 1338.0
-offset_right = 1254.0
-offset_bottom = 1528.0
+offset_left = -115.0
+offset_top = 291.0
+offset_right = 107.0
+offset_bottom = 412.0
 text = "how to play"
 
-[connection signal="button_down" from="start" to="." method="_on_start_button_down"]
-[connection signal="button_down" from="character_select" to="." method="_on_character_select_button_down"]
-[connection signal="button_down" from="tutorial" to="." method="_on_tutorial_button_down"]
+[node name="credits" type="Button" parent="StartScreenHorizontal"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -124.0
+offset_top = 442.0
+offset_right = 107.0
+offset_bottom = 492.0
+
+[connection signal="button_down" from="StartScreenHorizontal/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="StartScreenHorizontal/character_select" to="." method="_on_character_select_button_down"]
+[connection signal="button_down" from="StartScreenHorizontal/tutorial" to="." method="_on_tutorial_button_down"]
+[connection signal="button_down" from="StartScreenHorizontal/credits" to="." method="_on_credits_button_down"]

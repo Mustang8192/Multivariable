@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o6cp65wv1i58"]
+[gd_scene load_steps=9 format=3 uid="uid://o6cp65wv1i58"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_jfm1e"]
 [ext_resource type="PackedScene" uid="uid://csbjt7m57x4v0" path="res://Scenes/level.tscn" id="2_l2ekp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cl5u8wdmypt4n" path="res://Scenes/tutorial.tscn" id="5_sist8"]
 [ext_resource type="PackedScene" uid="uid://dkd0yaiphpt2s" path="res://Scenes/char_select.tscn" id="6_gj5ni"]
 [ext_resource type="PackedScene" uid="uid://ub0tt4fach0q" path="res://Scenes/game_over.tscn" id="7_48113"]
+[ext_resource type="PackedScene" uid="uid://cwb1vyd0vgd2h" path="res://Scenes/credits.tscn" id="8_6ius1"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_jfm1e")
@@ -16,6 +17,7 @@ main_menu_scene = ExtResource("4_gcncl")
 tutorial_scene = ExtResource("5_sist8")
 char_select_scene = ExtResource("6_gj5ni")
 game_over_scene = ExtResource("7_48113")
+credits_scene = ExtResource("8_6ius1")
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
