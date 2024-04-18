@@ -4,6 +4,7 @@ class_name MainMenu
 signal start_game()
 signal go_to_tutorial()
 signal go_to_char_select()
+signal go_to_credits()
 
 @export var level_scene: PackedScene
 
@@ -19,4 +20,9 @@ func _on_character_select_button_down():
 
 func _on_tutorial_button_down():
 	go_to_tutorial.emit()
+	hide()
+
+
+func _on_credits_button_down():
+	go_to_credits.emit()
 	hide()

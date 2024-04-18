@@ -8,6 +8,7 @@ extends Node2D
 @export var tutorial_scene: PackedScene
 @export var char_select_scene: PackedScene
 @export var game_over_scene: PackedScene
+@export var credits_scene: PackedScene
 
 var level: Level
 var player: Player
@@ -15,6 +16,7 @@ var main_menu: MainMenu
 var tutorial_screen
 var char_select_screen
 var game_over_screen
+var credits_screen
 
 var current_screen
 
@@ -30,6 +32,7 @@ func instantiate_main_menu():
 	main_menu.start_game.connect(instantiate_level)
 	main_menu.go_to_char_select.connect(show_char_select)
 	main_menu.go_to_tutorial.connect(show_tutorial)
+	main_menu.go_to_credits.connect(show_credits)
 	UI.add_child(main_menu)
 	current_screen = main_menu
 	
@@ -70,6 +73,13 @@ func show_game_over():
 	game_over_screen.back_to_main.connect(back_to_main)
 	current_screen = game_over_screen
 
+func show_credits():
+	main_menu.queue_free()
+	credits_screen = credits_scene.instantiate()
+	UI.add_child(credits_screen)
+	credits_screen.back_to_main.connect(back_to_main)
+	current_screen = credits_screen
+
 func back_to_main():
 	if tutorial_screen:
 		tutorial_screen.queue_free()
@@ -83,6 +93,9 @@ func back_to_main():
 	if level:
 		level.queue_free()
 		level = null
+	if credits_screen:
+		credits_screen.queue_free()
+		credits_screen = null
 	instantiate_main_menu()
 	current_screen = main_menu
 
