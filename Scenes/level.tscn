@@ -71,6 +71,7 @@ offset_top = 91.0
 offset_right = -396.0
 offset_bottom = 131.0
 text = "Lives: ?"
+fit_content = true
 script = ExtResource("3_gjopc")
 
 [node name="Question" type="Node2D" parent="."]
