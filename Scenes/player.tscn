@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://boshkkqunxhsr"]
+[gd_scene load_steps=10 format=3 uid="uid://boshkkqunxhsr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fmue2"]
 [ext_resource type="SpriteFrames" uid="uid://b4kffw662u63n" path="res://Sprites/Characters/mario.tres" id="2_iemdf"]
 [ext_resource type="SpriteFrames" uid="uid://cs8lp5kc8giw3" path="res://Sprites/Characters/toad.tres" id="3_6isk1"]
 [ext_resource type="SpriteFrames" uid="uid://bbcs1lxj812nh" path="res://Sprites/Characters/peach.tres" id="4_ccq68"]
 [ext_resource type="SpriteFrames" uid="uid://mmr4dkhnfd61" path="res://Sprites/Characters/koopa.tres" id="5_msnj8"]
+[ext_resource type="SpriteFrames" uid="uid://d3f346akq57c" path="res://Sprites/Characters/bowser.tres" id="6_gwg1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmiig"]
 
@@ -20,7 +21,7 @@ mario_sprites = ExtResource("2_iemdf")
 toad_sprites = ExtResource("3_6isk1")
 peach_sprites = ExtResource("4_ccq68")
 koopa_sprites = ExtResource("5_msnj8")
-bowser_sprites = ExtResource("2_iemdf")
+bowser_sprites = ExtResource("6_gwg1w")
 metadata/type = "player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

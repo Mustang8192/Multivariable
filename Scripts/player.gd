@@ -73,8 +73,12 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 			if direction < 0:
 				animated_sprite.flip_h = true
+				if animated_sprite.get_sprite_frames() == bowser_sprites:
+					animated_sprite.flip_h = false
 			else:
 				animated_sprite.flip_h = false
+				if animated_sprite.get_sprite_frames() == bowser_sprites:
+					animated_sprite.flip_h = true
 			animated_sprite.play("walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)

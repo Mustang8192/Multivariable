@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d3f346akq57c"]
+
+[ext_resource type="Texture2D" uid="uid://dhbx7chtoejox" path="res://Sprites/Characters/bowser.png" id="1_bsh8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6wvh"]
+atlas = ExtResource("1_bsh8k")
+region = Rect2(1050, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdx6i"]
+atlas = ExtResource("1_bsh8k")
+region = Rect2(0, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyaqo"]
+atlas = ExtResource("1_bsh8k")
+region = Rect2(0, 750, 1050, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la6wy"]
+atlas = ExtResource("1_bsh8k")
+region = Rect2(1050, 750, 1050, 750)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6wvh")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdx6i")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyaqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la6wy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
