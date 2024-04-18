@@ -1,28 +1,28 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cs8lp5kc8giw3"]
 
-[ext_resource type="Texture2D" uid="uid://doyqdwlugn2n4" path="res://Sprites/Characters/toad.png" id="1_qokwp"]
+[ext_resource type="Texture2D" uid="uid://c7sl458pxbie" path="res://Sprites/Characters/toad.png" id="1_qokwp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pujuh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tk4k"]
 atlas = ExtResource("1_qokwp")
-region = Rect2(1050, 750, 1050, 750)
+region = Rect2(2112, 500, 1400, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_axrxc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikttd"]
 atlas = ExtResource("1_qokwp")
-region = Rect2(0, 750, 1050, 750)
+region = Rect2(0, 500, 1400, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_37613"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouy7y"]
 atlas = ExtResource("1_qokwp")
-region = Rect2(0, 750, 1050, 750)
+region = Rect2(0, 500, 1400, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_25esd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_21qcb"]
 atlas = ExtResource("1_qokwp")
-region = Rect2(1050, 750, 1050, 750)
+region = Rect2(2112, 500, 1400, 1000)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pujuh")
+"texture": SubResource("AtlasTexture_6tk4k")
 }],
 "loop": true,
 "name": &"jump",
@@ -30,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_axrxc")
+"texture": SubResource("AtlasTexture_ikttd")
 }],
 "loop": true,
 "name": &"stand",
@@ -38,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_37613")
+"texture": SubResource("AtlasTexture_ouy7y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_25esd")
+"texture": SubResource("AtlasTexture_21qcb")
 }],
 "loop": true,
 "name": &"walk",

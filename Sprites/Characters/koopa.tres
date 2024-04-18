@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://mmr4dkhnfd61"]
+
+[ext_resource type="Texture2D" uid="uid://bwning1hxd0e3" path="res://Sprites/Characters/koopa.png" id="1_evm8b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imlmd"]
+atlas = ExtResource("1_evm8b")
+region = Rect2(0, 0, 2100, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgtsn"]
+atlas = ExtResource("1_evm8b")
+region = Rect2(2100, 0, 2100, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyypc"]
+atlas = ExtResource("1_evm8b")
+region = Rect2(0, 0, 2100, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgyrs"]
+atlas = ExtResource("1_evm8b")
+region = Rect2(2100, 0, 2100, 1500)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imlmd")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgtsn")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyypc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgyrs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

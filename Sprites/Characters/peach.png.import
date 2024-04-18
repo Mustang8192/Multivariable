@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7sl458pxbie"
-path="res://.godot/imported/toad.png-e76ae6f7d8bb4d4106783b1577e01081.ctex"
+uid="uid://paysqqlessh4"
+path="res://.godot/imported/peach.png-9d4e0e3892160b42afe578ab39c08f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/toad.png"
-dest_files=["res://.godot/imported/toad.png-e76ae6f7d8bb4d4106783b1577e01081.ctex"]
+source_file="res://Sprites/Characters/peach.png"
+dest_files=["res://.godot/imported/peach.png-9d4e0e3892160b42afe578ab39c08f04.ctex"]
 
 [params]
 

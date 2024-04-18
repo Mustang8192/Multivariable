@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bbcs1lxj812nh"]
+
+[ext_resource type="Texture2D" uid="uid://paysqqlessh4" path="res://Sprites/Characters/peach.png" id="1_tvvk3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6umre"]
+atlas = ExtResource("1_tvvk3")
+region = Rect2(444, 444, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06ly6"]
+atlas = ExtResource("1_tvvk3")
+region = Rect2(0, 444, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q3l5"]
+atlas = ExtResource("1_tvvk3")
+region = Rect2(0, 444, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j40s4"]
+atlas = ExtResource("1_tvvk3")
+region = Rect2(444, 444, 444, 444)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6umre")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06ly6")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q3l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j40s4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
