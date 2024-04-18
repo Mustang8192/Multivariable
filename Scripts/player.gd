@@ -24,21 +24,33 @@ var animated_sprite: AnimatedSprite2D
 @export var koopa_sprites: SpriteFrames
 @export var bowser_sprites: SpriteFrames
 
+@export var mario_scale: Vector2 = Vector2(.099, .093)
+@export var toad_scale: Vector2 = Vector2(.033, .027)
+@export var peach_scale: Vector2 = Vector2(.068, .054)
+@export var koopa_scale: Vector2 = Vector2(.035, .03)
+@export var bowser_scale: Vector2 = Vector2(.099, .093)
+
 func enter():
 	set_meta("lives", 3)
+	lives = 3
 	animated_sprite = %AnimatedSprite2D
 	print(char_index)
 	match char_index:
 		0:
-			animated_sprite.set_sprite_frames(mario_sprites) 
+			animated_sprite.set_sprite_frames(mario_sprites)
+			animated_sprite.scale = mario_scale
 		1:
 			animated_sprite.set_sprite_frames(toad_sprites)
+			animated_sprite.scale = toad_scale
 		2:
 			animated_sprite.set_sprite_frames(peach_sprites)
+			animated_sprite.scale = peach_scale
 		3:
 			animated_sprite.set_sprite_frames(koopa_sprites)
+			animated_sprite.scale = koopa_scale
 		4:
 			animated_sprite.set_sprite_frames(bowser_sprites)
+			animated_sprite.scale = bowser_scale
 	animated_sprite.animation = "stand"
 	print("Mario: " + str(animated_sprite.get_sprite_frames() == mario_sprites))
 	print("Toad: " + str(animated_sprite.get_sprite_frames() == toad_sprites))
