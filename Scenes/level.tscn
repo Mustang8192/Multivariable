@@ -74,6 +74,8 @@ text = "Lives: ?"
 fit_content = true
 script = ExtResource("3_gjopc")
 
+[node name="Sprite2D" type="Sprite2D" parent="Lives Counter"]
+
 [node name="Question" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_k24xk")
