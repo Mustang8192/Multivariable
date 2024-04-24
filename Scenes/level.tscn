@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
-[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Background.png" id="2_88ban"]
+[ext_resource type="Texture2D" uid="uid://cxm7i780a0y2q" path="res://Sprites/Background.png" id="2_twisf"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="3_gjopc"]
 [ext_resource type="Script" path="res://Scripts/question_generation.gd" id="4_k24xk"]
 [ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_0t1ok"]
 [ext_resource type="FontFile" uid="uid://dvhra1mgppt5u" path="res://Sprites/Fonts/CS Gordon Vintage.otf" id="5_dkw8t"]
-[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Barrel Scenes/incorrect_barrel.tscn" id="6_gv2j4"]
-[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Barrel Scenes/correct_barrel.tscn" id="7_3y0e6"]
+[ext_resource type="PackedScene" uid="uid://c5ar4e3iiuxh7" path="res://Scenes/Barrel Scenes/incorrect_barrel.tscn" id="8_8myln"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
+[ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Scenes/Barrel Scenes/correct_barrel.tscn" id="9_7dc6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(2171.48, 49.5406)
@@ -37,7 +37,7 @@ script = ExtResource("1_ukpym")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 865.5)
 scale = Vector2(1.34956, 1.33527)
-texture = ExtResource("2_88ban")
+texture = ExtResource("2_twisf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 868)
@@ -82,8 +82,8 @@ metadata/_edit_group_ = true
 [node name="BarrelSpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_0t1ok")
-incorrect_barrel_scene = ExtResource("6_gv2j4")
-correct_barrel_scene = ExtResource("7_3y0e6")
+incorrect_barrel_scene = ExtResource("8_8myln")
+correct_barrel_scene = ExtResource("9_7dc6t")
 
 [node name="Timer" type="Timer" parent="BarrelSpawner"]
 unique_name_in_owner = true
