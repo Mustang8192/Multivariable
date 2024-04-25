@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s42vykqlow0a"
-path="res://.godot/imported/Start Screen Horizontal.png-d4bb3af12c028658c4e8d9a26c6c93e7.ctex"
+uid="uid://db8udnknfnyij"
+path="res://.godot/imported/Game Over Horizontal.png-6477e9de0392ca4b5fb3d017f07771fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Start Screen Horizontal.png"
-dest_files=["res://.godot/imported/Start Screen Horizontal.png-d4bb3af12c028658c4e8d9a26c6c93e7.ctex"]
+source_file="res://Sprites/Screens/Game Over Horizontal.png"
+dest_files=["res://.godot/imported/Game Over Horizontal.png-6477e9de0392ca4b5fb3d017f07771fe.ctex"]
 
 [params]
 

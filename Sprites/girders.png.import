@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4fny1ln0c76"
-path="res://.godot/imported/Character Select Horizontal.png-8b78061cd87a48861469d0bfcf42883a.ctex"
+uid="uid://be0okgtc61e7e"
+path="res://.godot/imported/girders.png-6ba1aea8e588e91b808b55393bdce9ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character Select Horizontal.png"
-dest_files=["res://.godot/imported/Character Select Horizontal.png-8b78061cd87a48861469d0bfcf42883a.ctex"]
+source_file="res://Sprites/girders.png"
+dest_files=["res://.godot/imported/girders.png-6ba1aea8e588e91b808b55393bdce9ba.ctex"]
 
 [params]
 

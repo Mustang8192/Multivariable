@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkd0yaiphpt2s"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/char_select.gd" id="1_8xukg"]
-[ext_resource type="Texture2D" uid="uid://boow0b2c6axjv" path="res://Sprites/Horizontal Character Select Screen.png" id="2_i414j"]
-[ext_resource type="Texture2D" uid="uid://b8vrqqggutvn1" path="res://Sprites/Characters.png" id="3_hq0as"]
+[ext_resource type="Texture2D" uid="uid://boow0b2c6axjv" path="res://Sprites/Screens/Horizontal Character Select Screen.png" id="2_i414j"]
+[ext_resource type="Texture2D" uid="uid://b8vrqqggutvn1" path="res://Sprites/Characters/Characters.png" id="3_hq0as"]
 [ext_resource type="Script" path="res://Scripts/cs_sprite.gd" id="4_u6v63"]
 [ext_resource type="FontFile" uid="uid://dvhra1mgppt5u" path="res://Sprites/Fonts/CS Gordon Vintage.otf" id="5_vr38i"]
 

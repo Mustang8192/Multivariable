@@ -42,7 +42,7 @@ func instantiate_level():
 	level.position = Vector2(0,0)
 	player = player_scene.instantiate()
 	player.scale = Vector2(3,3)
-	player.position = Vector2(304, 500)
+	player.position = Vector2(164,1490)
 	level.add_child(player)
 	level.player = player
 	level.player.lives_out.connect(game_over)

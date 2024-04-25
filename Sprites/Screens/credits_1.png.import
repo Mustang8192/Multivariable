@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boow0b2c6axjv"
-path="res://.godot/imported/Horizontal Character Select Screen.png-f873ae8cbc4fd9f6f8fc1195efff9a21.ctex"
+uid="uid://4gc7f04gjfv8"
+path="res://.godot/imported/credits_1.png-7055aa3ac07302cae6fc7a656bcb21fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Horizontal Character Select Screen.png"
-dest_files=["res://.godot/imported/Horizontal Character Select Screen.png-f873ae8cbc4fd9f6f8fc1195efff9a21.ctex"]
+source_file="res://Sprites/Screens/credits_1.png"
+dest_files=["res://.godot/imported/credits_1.png-7055aa3ac07302cae6fc7a656bcb21fd.ctex"]
 
 [params]
 

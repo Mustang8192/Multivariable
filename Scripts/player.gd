@@ -4,7 +4,7 @@ class_name Player
 #var questions = Generator.new()
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -700.0
 
 var gravity = 980
 var lives = 3

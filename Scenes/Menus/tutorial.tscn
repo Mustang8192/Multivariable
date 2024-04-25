@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl5u8wdmypt4n"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/tutorial.gd" id="1_4rg0g"]
-[ext_resource type="Texture2D" uid="uid://c1025kxokp6qy" path="res://Sprites/Horizontal How to Play.png" id="2_1mjxj"]
+[ext_resource type="Texture2D" uid="uid://c1025kxokp6qy" path="res://Sprites/Screens/Horizontal How to Play.png" id="2_1mjxj"]
 
 [node name="tutorial" type="Control"]
 layout_mode = 3

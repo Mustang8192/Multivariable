@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3agcmiv0k64w"]
+
+[ext_resource type="Texture2D" uid="uid://be0okgtc61e7e" path="res://Sprites/girders.png" id="1_mb2rr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
+size = Vector2(20.5, 1617.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
+size = Vector2(1563.72, 84.4882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbqfe"]
+size = Vector2(1555.11, 78.4578)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jag"]
+size = Vector2(1515.16, 79.868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lqu"]
+size = Vector2(268.236, 192.228)
+
+[node name="level unit" type="Sprite2D"]
+scale = Vector2(1.34956, 1.33527)
+texture = ExtResource("1_mb2rr")
+region_enabled = true
+region_rect = Rect2(10.2, 11.642, 1577.8, 1174.58)
+
+[node name="Wall (Left)" type="StaticBody2D" parent="."]
+position = Vector2(-426.065, -648.184)
+scale = Vector2(0.740982, 0.748912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Left)"]
+position = Vector2(-510, 882)
+shape = SubResource("RectangleShape2D_e7sk1")
+one_way_collision_margin = 0.0
+debug_color = Color(0.988235, 0, 0, 1)
+
+[node name="Wall (Right)" type="StaticBody2D" parent="."]
+position = Vector2(-426.065, -649.681)
+scale = Vector2(0.740982, 0.748912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall (Right)"]
+position = Vector2(1666.75, 870.25)
+shape = SubResource("RectangleShape2D_e7sk1")
+one_way_collision_margin = 0.0
+debug_color = Color(0.988235, 0, 0, 1)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, -238.529)
+scale = Vector2(0.740982, 0.748912)
+metadata/type = "floor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-76.0686, 847.989)
+rotation = 0.191986
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_68eh2")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(0, -238.529)
+scale = Vector2(0.740982, 0.748912)
+metadata/type = "floor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(238, 439.501)
+rotation = -0.0959931
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_68eh2")
+
+[node name="Floor 3" type="StaticBody2D" parent="."]
+position = Vector2(-426.065, -648.184)
+scale = Vector2(0.740982, 0.748912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 3"]
+position = Vector2(469.388, 637.661)
+rotation = 0.0610865
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cbqfe")
+
+[node name="Floor 4" type="StaticBody2D" parent="."]
+position = Vector2(-426.065, -648.184)
+scale = Vector2(0.740982, 0.748912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 4"]
+position = Vector2(823.001, 258.501)
+rotation = -0.116937
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_j6jag")
+
+[node name="transition  trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition  trigger"]
+position = Vector2(-100.033, -504.018)
+shape = SubResource("RectangleShape2D_k2lqu")

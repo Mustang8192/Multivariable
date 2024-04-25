@@ -5,9 +5,13 @@ extends Node2D
 
 var random = RandomNumberGenerator.new()
 
-var pos1 = Vector2(1100, 300)
-var pos2 = Vector2(1100, 50)
-var pos3 = Vector2(1100, -200)
+@export var spawn1: Node2D
+@export var spawn2: Node2D
+@export var spawn3: Node2D
+
+@onready var pos1 = spawn1.position
+@onready var pos2 = spawn2.position
+@onready var pos3 = spawn3.position
 
 var question_log = []
 var question_index = 0

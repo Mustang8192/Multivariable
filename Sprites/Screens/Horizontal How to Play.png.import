@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db8udnknfnyij"
-path="res://.godot/imported/Game Over Horizontal.png-9fc371b78dc3d50d5481c91405f6e477.ctex"
+uid="uid://c1025kxokp6qy"
+path="res://.godot/imported/Horizontal How to Play.png-f8b599f3d66f8a9e3a8d3db4e08fa3fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Game Over Horizontal.png"
-dest_files=["res://.godot/imported/Game Over Horizontal.png-9fc371b78dc3d50d5481c91405f6e477.ctex"]
+source_file="res://Sprites/Screens/Horizontal How to Play.png"
+dest_files=["res://.godot/imported/Horizontal How to Play.png-f8b599f3d66f8a9e3a8d3db4e08fa3fb.ctex"]
 
 [params]
 

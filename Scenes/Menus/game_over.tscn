@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ub0tt4fach0q"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/game_over.gd" id="1_4iriu"]
-[ext_resource type="Texture2D" uid="uid://db8udnknfnyij" path="res://Sprites/Game Over Horizontal.png" id="2_m34vk"]
+[ext_resource type="Texture2D" uid="uid://db8udnknfnyij" path="res://Sprites/Screens/Game Over Horizontal.png" id="2_m34vk"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
