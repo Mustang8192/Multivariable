@@ -10,10 +10,13 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="8_gl2ah"]
 [ext_resource type="PackedScene" uid="uid://tfg2n4ts3rv1" path="res://Scenes/Barrel Scenes/correct_barrel.tscn" id="9_7dc6t"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("active_unit")]
 script = ExtResource("1_ukpym")
+active_unit = NodePath("environment/level unit2")
+level_unit_scene = ExtResource("2_4rk8q")
 
 [node name="environment" type="Node2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(575, 650)
 
 [node name="level unit" parent="environment" instance=ExtResource("2_4rk8q")]
@@ -66,7 +69,6 @@ spawn3 = NodePath("../barrel_spawn_3")
 [node name="Timer" type="Timer" parent="BarrelSpawner"]
 unique_name_in_owner = true
 wait_time = 5.0
-autostart = true
 
 [node name="player spawn" type="Node2D" parent="."]
 position = Vector2(164, 1490)

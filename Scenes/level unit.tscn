@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3agcmiv0k64w"]
+[gd_scene load_steps=8 format=3 uid="uid://c3agcmiv0k64w"]
 
 [ext_resource type="Texture2D" uid="uid://be0okgtc61e7e" path="res://Sprites/girders.png" id="1_mb2rr"]
+[ext_resource type="Script" path="res://Scripts/level_unit.gd" id="2_oonsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7sk1"]
 size = Vector2(20.5, 1617.5)
@@ -22,6 +23,7 @@ scale = Vector2(1.34956, 1.33527)
 texture = ExtResource("1_mb2rr")
 region_enabled = true
 region_rect = Rect2(10.2, 11.642, 1577.8, 1174.58)
+script = ExtResource("2_oonsk")
 
 [node name="Wall (Left)" type="StaticBody2D" parent="."]
 position = Vector2(-426.065, -648.184)
@@ -72,7 +74,6 @@ scale = Vector2(0.740982, 0.748912)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 3"]
 position = Vector2(469.388, 637.661)
 rotation = 0.0610865
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cbqfe")
 
 [node name="Floor 4" type="StaticBody2D" parent="."]
@@ -82,7 +83,6 @@ scale = Vector2(0.740982, 0.748912)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 4"]
 position = Vector2(823.001, 258.501)
 rotation = -0.116937
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_j6jag")
 
 [node name="transition  trigger" type="Area2D" parent="."]
@@ -90,3 +90,5 @@ shape = SubResource("RectangleShape2D_j6jag")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transition  trigger"]
 position = Vector2(-100.033, -504.018)
 shape = SubResource("RectangleShape2D_k2lqu")
+
+[connection signal="body_entered" from="transition  trigger" to="." method="_on_transition__trigger_body_entered"]

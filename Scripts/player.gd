@@ -3,8 +3,8 @@ class_name Player
 #const Generator = preload("res://Scripts/question_generation.gd")
 #var questions = Generator.new()
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -700.0
+const SPEED = 1000.0
+const JUMP_VELOCITY = -1000.0
 
 var gravity = 980
 var lives = 3
