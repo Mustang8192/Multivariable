@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3agcmiv0k64w"]
+[gd_scene load_steps=11 format=3 uid="uid://c3agcmiv0k64w"]
 
 [ext_resource type="Texture2D" uid="uid://be0okgtc61e7e" path="res://Sprites/girders.png" id="1_mb2rr"]
 [ext_resource type="Script" path="res://Scripts/level_unit.gd" id="2_oonsk"]
@@ -9,14 +9,23 @@ size = Vector2(20.5, 1617.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68eh2"]
 size = Vector2(1563.72, 84.4882)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o8nd"]
+size = Vector2(60.9304, 622.001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5m00"]
+size = Vector2(61.8269, 728.001)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbqfe"]
 size = Vector2(1555.11, 78.4578)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3fy4"]
+size = Vector2(89.9267, 491.229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jag"]
 size = Vector2(1515.16, 79.868)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lqu"]
-size = Vector2(268.236, 192.228)
+size = Vector2(268.236, 83.3825)
 
 [node name="level unit" type="Sprite2D"]
 scale = Vector2(1.34956, 1.33527)
@@ -56,6 +65,11 @@ rotation = 0.191986
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_68eh2")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-874, 395.501)
+scale = Vector2(0.999998, 0.999998)
+shape = SubResource("RectangleShape2D_4o8nd")
+
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2(0, -238.529)
 scale = Vector2(0.740982, 0.748912)
@@ -67,6 +81,11 @@ rotation = -0.0959931
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_68eh2")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(1037.09, -7.49942)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_s5m00")
+
 [node name="Floor 3" type="StaticBody2D" parent="."]
 position = Vector2(-426.065, -648.184)
 scale = Vector2(0.740982, 0.748912)
@@ -75,6 +94,11 @@ scale = Vector2(0.740982, 0.748912)
 position = Vector2(469.388, 637.661)
 rotation = 0.0610865
 shape = SubResource("RectangleShape2D_cbqfe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor 3"]
+position = Vector2(-336.037, 317.501)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_n3fy4")
 
 [node name="Floor 4" type="StaticBody2D" parent="."]
 position = Vector2(-426.065, -648.184)
@@ -88,7 +112,7 @@ shape = SubResource("RectangleShape2D_j6jag")
 [node name="transition  trigger" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transition  trigger"]
-position = Vector2(-100.033, -504.018)
+position = Vector2(-237.855, -509.26)
 shape = SubResource("RectangleShape2D_k2lqu")
 
 [connection signal="body_entered" from="transition  trigger" to="." method="_on_transition__trigger_body_entered"]

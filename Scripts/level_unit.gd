@@ -8,4 +8,4 @@ func _on_transition__trigger_body_entered(body):
 	if !(body is Player):
 		return
 	print("Sending transition signal")
-	transition.emit()
+	transition.emit(self)
