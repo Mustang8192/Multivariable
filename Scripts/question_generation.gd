@@ -1,11 +1,12 @@
 extends Node2D
-
+class_name QuestionGenerator
 
 var body
 var json_file_path = "res://Data/curriculums.json"
 var curriculum_data
 var curriculums = {}
-var current_level = 3
+var current_level = 0
+var random_curriculum: bool = false
 
 var label: RichTextLabel
 
@@ -29,12 +30,14 @@ func get_label_node():
 			break
 
 func generate_question():
-	var current_curriculum = curriculums[current_level]
+	if current_level >= curriculums.size():
+		random_curriculum = true
+	var current_curriculum = curriculums[current_level] if !random_curriculum else curriculums[randi_range(0, curriculums.size() - 1)]
 	#count question types
 	var question_count = 0
 	for key in current_curriculum:
 		question_count+=1
-	var question: Question = Question.new(current_curriculum["question_type_4"]) # + str(randi_range(1, question_count))]
+	var question: Question = Question.new(current_curriculum["question_type_" + str(randi_range(1, question_count))])
 	var question_info: Dictionary
 	match question.type:
 		"Addition":

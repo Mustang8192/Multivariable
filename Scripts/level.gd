@@ -15,12 +15,17 @@ var environment_moving: bool = false
 var environment_goal_y: float
 var environment_speed: float = 5.0
 
+signal level_transition
 signal game_over
+
+func _ready():
+	level_transition.connect(barrel_spawner.next_level)
 
 func _process(delta):
 	for child in environment.get_children():
 		var unit = child as LevelUnit
-		unit.transition.connect(screen_transition)
+		if !unit.transition.is_connected(screen_transition):
+			unit.transition.connect(screen_transition)
 	if environment_moving && environment.position.y != environment_goal_y:
 		environment.position.y += environment_speed
 		if environment.position.y >= environment_goal_y:
@@ -37,7 +42,7 @@ func _process(delta):
 func screen_transition(unit: LevelUnit):
 	if unit != active_unit:
 		return
-	print("Level transition")
+	level_transition.emit()
 	var new_unit = level_unit_scene.instantiate()
 	new_unit.position = units[0].position + Vector2(0, -1572)
 	units.insert(0, new_unit)
@@ -49,7 +54,10 @@ func screen_transition(unit: LevelUnit):
 func environment_move():
 	barrel_spawner.pause_spawn()
 	environment_moving = true
+	player.pause()
+	barrel_spawner.clear_screen()
 
 func environment_stop():
 	environment_moving = false
 	barrel_spawner.unpause_spawn()
+	player.unpause()

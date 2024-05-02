@@ -1,7 +1,6 @@
 extends Node2D
 
-@export var incorrect_barrel_scene : PackedScene
-@export var correct_barrel_scene : PackedScene
+@export var barrel_scene : PackedScene
 
 var random = RandomNumberGenerator.new()
 
@@ -19,18 +18,33 @@ var question_index = 0
 var player: Player
 @onready var timer: Timer = %Timer
 
-@onready var question_gen: Node2D = %Question
+@onready var question_gen: QuestionGenerator = %Question
+
+var level: int = 0
 
 func _ready():
 	question_log.append(question_gen.generate_question())
 	question_log.append(question_gen.generate_question())
 	question_log.append(question_gen.generate_question())
 	question_gen.set_label_text(question_log[0]["text"])
+	question_gen.current_level += 1
+
+func next_level():
+	level += 1
+	print("Level transition, new level: " + str(level) + "; Closeness to next curriculum: " + str(level % 3))
+	if question_gen.curriculum_data.size() <= question_gen.current_level:
+		return
+	if level % 3 == 0:
+		print("New curriculum!")
+		question_gen.current_level += 1
 
 func _on_timer_timeout():
-	var correct = correct_barrel_scene.instantiate()
-	var incorrect1 = incorrect_barrel_scene.instantiate()
-	var incorrect2 = incorrect_barrel_scene.instantiate()
+	var correct = barrel_scene.instantiate()
+	var incorrect1 = barrel_scene.instantiate()
+	var incorrect2 = barrel_scene.instantiate()
+	correct.is_correct = true
+	incorrect1.is_correct = false
+	incorrect2.is_correct = false
 	
 	var barrels = Node.new()
 	add_child(barrels)
@@ -82,3 +96,9 @@ func unpause_spawn():
 func set_player(_player: Player):
 	player = _player
 	player.lives_out.connect(pause_spawn)
+
+func clear_screen():
+	for child in get_children():
+		if !(child is Timer):
+			child.queue_free()
+	next_question()

@@ -1,22 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://tfg2n4ts3rv1"]
 
-[ext_resource type="Texture2D" uid="uid://bj1tkv668pl67" path="res://Sprites/barrel.png" id="1_aaj0m"]
-[ext_resource type="Script" path="res://Scripts/correct_barrel.gd" id="1_krd3c"]
-[ext_resource type="Script" path="res://Scripts/barrel_label.gd" id="3_ol3yr"]
+[ext_resource type="Script" path="res://Scripts/barrel.gd" id="1_5ekm3"]
+[ext_resource type="Texture2D" uid="uid://bj1tkv668pl67" path="res://Sprites/barrel.png" id="2_o2koi"]
+[ext_resource type="Script" path="res://Scripts/barrel_label.gd" id="3_12p8u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qt7l"]
 
-[node name="CorrectBarrel" type="CharacterBody2D"]
+[node name="Barrel" type="CharacterBody2D"]
 scale = Vector2(3, 3)
-script = ExtResource("1_krd3c")
-metadata/type = "correct_barrel"
+script = ExtResource("1_5ekm3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6qt7l")
 
 [node name="Barrel" type="Sprite2D" parent="."]
 scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_aaj0m")
+texture = ExtResource("2_o2koi")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -4.66667
@@ -24,4 +23,4 @@ offset_top = -29.3333
 offset_right = 5.33333
 offset_bottom = -3.33334
 text = "6"
-script = ExtResource("3_ol3yr")
+script = ExtResource("3_12p8u")

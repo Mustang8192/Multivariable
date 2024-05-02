@@ -1,16 +1,18 @@
 extends CharacterBody2D
+class_name Barrel
 
-const SPEED = 400.0
+const SPEED = 700.0
 
 var direction = -1
 var label
+
+var is_correct: bool
 
 func get_label_node():
 	for child in get_children():
 		if child is Label:
 			label = child
 			break
-			
 
 func _physics_process(delta):
 	# Add the gravity.

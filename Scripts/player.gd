@@ -3,11 +3,13 @@ class_name Player
 #const Generator = preload("res://Scripts/question_generation.gd")
 #var questions = Generator.new()
 
-const SPEED = 1000.0
-const JUMP_VELOCITY = -1000.0
+const SPEED = 500.0
+const JUMP_VELOCITY = -700.0
 
 var gravity = 980
 var lives = 3
+
+var paused: bool = false
 
 var barrel_spawner
 
@@ -52,14 +54,17 @@ func enter():
 			animated_sprite.set_sprite_frames(bowser_sprites)
 			animated_sprite.scale = bowser_scale
 	animated_sprite.animation = "stand"
-	print("Mario: " + str(animated_sprite.get_sprite_frames() == mario_sprites))
-	print("Toad: " + str(animated_sprite.get_sprite_frames() == toad_sprites))
 
 func _process(delta):
 	set_meta("lives", lives)
 
 func _physics_process(delta):
 	# Add the gravity.
+	if paused:
+		velocity.x = 0
+		position.y += 5.0
+		move_and_slide()
+		return
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -95,40 +100,46 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func pause():
+	paused = true
+	velocity.y = 0
+
+func unpause():
+	paused = false
+
 func _on_incorrect_barrel_body_entered(body):
-	if !body.has_meta("type"):
+	if !(body is Barrel):
 		return
-	if body.get_meta("type") == "correct_barrel":
+	var barrel = body as Barrel
+	if barrel.is_correct:
 		lives -= 1
-		barrel_spawner = body.get_parent().get_parent()
+		barrel_spawner = barrel.get_parent().get_parent()
 		barrel_spawner.next_question()
 		var barrels = body.get_parent()
 		for node in barrels.get_children():
 			node.queue_free()
 		barrels.queue_free()
-	
-	if body.get_meta("type") == "incorrect_barrel":
+	if !barrel.is_correct:
 		body.queue_free()
-		#questions.generate_question()
 	if lives <= 0:
 		lives_out.emit()
 
 
 
 func _on_correct_barrel_body_entered(body):
-	if !body.has_meta("type"):
+	if !(body is Barrel):
 		return
-	if body.get_meta("type") == "incorrect_barrel":
+	var barrel = body as Barrel
+	if !barrel.is_correct:
 		lives -= 1
 		body.queue_free()
-	if body.get_meta("type") == "correct_barrel":
-		barrel_spawner = body.get_parent().get_parent()
+	if barrel.is_correct:
+		barrel_spawner = barrel.get_parent().get_parent()
 		barrel_spawner.next_question()
 		var barrels = body.get_parent()
-		print(barrels.get_children())
 		for node in barrels.get_children():
 			node.queue_free()
 		barrels.queue_free()
-
 	if lives <= 0:
 		lives_out.emit()
+
