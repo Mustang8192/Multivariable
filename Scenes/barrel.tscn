@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://tfg2n4ts3rv1"]
+[gd_scene load_steps=6 format=3 uid="uid://tfg2n4ts3rv1"]
 
 [ext_resource type="Script" path="res://Scripts/barrel.gd" id="1_5ekm3"]
 [ext_resource type="Texture2D" uid="uid://bj1tkv668pl67" path="res://Sprites/barrel.png" id="2_o2koi"]
 [ext_resource type="Script" path="res://Scripts/barrel_label.gd" id="3_12p8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vxbu"]
+size = Vector2(25.6667, 17.6667)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qt7l"]
 
 [node name="Barrel" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_5ekm3")
+
+[node name="barrier_detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barrier_detection"]
+shape = SubResource("RectangleShape2D_6vxbu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6qt7l")
@@ -24,3 +32,5 @@ offset_right = 5.33333
 offset_bottom = -3.33334
 text = "6"
 script = ExtResource("3_12p8u")
+
+[connection signal="body_entered" from="barrier_detection" to="." method="_on_barrier_detection_body_entered"]

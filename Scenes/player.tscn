@@ -13,7 +13,7 @@
 size = Vector2(23, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3kgu"]
-size = Vector2(20, 56)
+size = Vector2(20, 40)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_fmue2")
@@ -41,7 +41,7 @@ metadata/type = "player_collision"
 metadata/type = "player_collision"
 
 [node name="CorrectBarrelCollision" type="CollisionShape2D" parent="Correct Barrel"]
-position = Vector2(-1, 38)
+position = Vector2(-1, 30)
 shape = SubResource("RectangleShape2D_y3kgu")
 metadata/type = "player_collision"
 
@@ -53,6 +53,6 @@ sprite_frames = ExtResource("5_msnj8")
 animation = &"jump"
 offset = Vector2(120, 0)
 
-[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
 [connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Incorrect Barrel" to="." method="_on_incorrect_barrel_body_entered"]
 [connection signal="body_entered" from="Correct Barrel" to="." method="_on_correct_barrel_body_entered"]

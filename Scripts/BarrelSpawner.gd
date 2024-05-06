@@ -22,6 +22,12 @@ var player: Player
 
 var level: int = 0
 
+func _process(delta):
+	if question_log.size() > 0:
+		question_gen.set_label_text(question_log[0]["text"])
+	else:
+		next_question()
+
 func _ready():
 	question_log.append(question_gen.generate_question())
 	question_log.append(question_gen.generate_question())
@@ -31,20 +37,20 @@ func _ready():
 
 func next_level():
 	level += 1
-	print("Level transition, new level: " + str(level) + "; Closeness to next curriculum: " + str(level % 3))
 	if question_gen.curriculum_data.size() <= question_gen.current_level:
 		return
 	if level % 3 == 0:
-		print("New curriculum!")
 		question_gen.current_level += 1
 
 func _on_timer_timeout():
-	var correct = barrel_scene.instantiate()
-	var incorrect1 = barrel_scene.instantiate()
-	var incorrect2 = barrel_scene.instantiate()
+	var correct = barrel_scene.instantiate() as Barrel
+	var incorrect1 = barrel_scene.instantiate() as Barrel
+	var incorrect2 = barrel_scene.instantiate() as Barrel
 	correct.is_correct = true
 	incorrect1.is_correct = false
 	incorrect2.is_correct = false
+	
+	correct.next_q.connect(next_question)
 	
 	var barrels = Node.new()
 	add_child(barrels)
@@ -82,10 +88,11 @@ func _on_timer_timeout():
 		incorrect2.position = pos1	
 	
 func next_question():
-	question_log.remove_at(0)
+	if question_log.size() > 0:
+		question_log.remove_at(0)
+		question_index -= 1
 	question_log.append(question_gen.generate_question())
 	question_gen.set_label_text(question_log[0]["text"])
-	question_index -= 1
 
 func pause_spawn():
 	timer.set_paused(true)
@@ -101,4 +108,4 @@ func clear_screen():
 	for child in get_children():
 		if !(child is Timer):
 			child.queue_free()
-	next_question()
+	question_log = []

@@ -7,6 +7,7 @@ var direction = -1
 var label
 
 var is_correct: bool
+signal next_q
 
 func get_label_node():
 	for child in get_children():
@@ -39,3 +40,11 @@ func _physics_process(delta):
 func set_label_text(text: String):
 	get_label_node()
 	label.set_text(text)
+
+
+func _on_barrier_detection_body_entered(body):
+	print("Barrier body entered: " + str(body))
+	if body.name.begins_with("Barrier"):
+		if is_correct:
+			next_q.emit()
+		queue_free()

@@ -20,6 +20,9 @@ var time_since_ground : float
 var char_index: int = -1
 var animated_sprite: AnimatedSprite2D
 
+var current_floor: Floor
+var previous_floor: Floor
+
 @export var mario_sprites: SpriteFrames
 @export var toad_sprites: SpriteFrames
 @export var peach_sprites: SpriteFrames
@@ -127,19 +130,26 @@ func _on_incorrect_barrel_body_entered(body):
 
 
 func _on_correct_barrel_body_entered(body):
-	if !(body is Barrel):
+	if !(body is Barrel) and !(body is StaticBody2D):
 		return
-	var barrel = body as Barrel
-	if !barrel.is_correct:
-		lives -= 1
-		body.queue_free()
-	if barrel.is_correct:
-		barrel_spawner = barrel.get_parent().get_parent()
-		barrel_spawner.next_question()
-		var barrels = body.get_parent()
-		for node in barrels.get_children():
-			node.queue_free()
-		barrels.queue_free()
-	if lives <= 0:
-		lives_out.emit()
+	if body is Barrel:
+		var barrel = body as Barrel
+		if !barrel.is_correct:
+			lives -= 1
+			body.queue_free()
+		if barrel.is_correct:
+			barrel_spawner = barrel.get_parent().get_parent()
+			barrel_spawner.next_question()
+			var barrels = body.get_parent()
+			for node in barrels.get_children():
+				node.queue_free()
+			barrels.queue_free()
+		if lives <= 0:
+			lives_out.emit()
+	if body is Floor:
+		var floor = body as Floor
+		if floor != current_floor:
+			previous_floor = current_floor
+			current_floor = floor
+			floor.call_deferred("enable_barrier")
 
