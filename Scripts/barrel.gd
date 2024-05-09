@@ -3,8 +3,9 @@ class_name Barrel
 
 const SPEED = 700.0
 
-var direction = -1
 var label
+
+var paused: bool = false
 
 var is_correct: bool
 signal next_q
@@ -20,7 +21,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y = SPEED + 50
 
-	if is_on_floor():
+	if is_on_floor() and !paused:
 		var floor_normal = get_floor_normal()  # Get the normal vector of the floor
 		var slope_angle = atan2(floor_normal.x, floor_normal.y)  # Calculate the angle of the slope
 
@@ -43,7 +44,8 @@ func set_label_text(text: String):
 
 
 func _on_barrier_detection_body_entered(body):
-	print("Barrier body entered: " + str(body))
+	if paused:
+		return
 	if body.name.begins_with("Barrier"):
 		if is_correct:
 			next_q.emit()

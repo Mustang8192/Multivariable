@@ -2,7 +2,7 @@ extends Node2D
 class_name Level
 
 var player: Player
-@onready var barrel_spawner = %BarrelSpawner
+@onready var barrel_spawner = %BarrelSpawner as BarrelSpawner
 @onready var question_gen = %Question
 @onready var lives_counter: LivesCounter = %"Lives Counter"
 
@@ -43,7 +43,7 @@ func screen_transition(unit: LevelUnit):
 	if unit != active_unit:
 		return
 	level_transition.emit()
-	var new_unit = level_unit_scene.instantiate()
+	var new_unit = level_unit_scene.instantiate() as LevelUnit
 	new_unit.position = units[0].position + Vector2(0, -1572)
 	units.insert(0, new_unit)
 	active_unit = new_unit
@@ -56,8 +56,11 @@ func environment_move():
 	environment_moving = true
 	player.pause()
 	barrel_spawner.clear_screen()
+	for spawns in units[0].preload_spawns.get_children():
+		barrel_spawner.preload_spawn(spawns.get_children().map(func(i): return i.global_position))
 
 func environment_stop():
 	environment_moving = false
 	barrel_spawner.unpause_spawn()
+	barrel_spawner.unpause_all_barrels()
 	player.unpause()

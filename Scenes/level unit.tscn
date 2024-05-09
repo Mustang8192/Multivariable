@@ -40,12 +40,13 @@ size = Vector2(60, 466.615)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl1ek"]
 size = Vector2(60.2101, 453.617)
 
-[node name="level unit" type="Sprite2D"]
+[node name="level unit" type="Sprite2D" node_paths=PackedStringArray("preload_spawns")]
 scale = Vector2(1.34956, 1.33527)
 texture = ExtResource("1_mb2rr")
 region_enabled = true
 region_rect = Rect2(10.2, 11.642, 1577.8, 1174.58)
 script = ExtResource("2_oonsk")
+preload_spawns = NodePath("preload_spawns")
 
 [node name="Wall (Left)" type="StaticBody2D" parent="."]
 position = Vector2(-426.065, -648.184)
@@ -112,7 +113,6 @@ barrier = NodePath("../Barrier3/Barrier")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 3"]
 position = Vector2(477.216, 638.14)
 rotation = 0.0610865
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cbqfe")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor 3"]
@@ -132,7 +132,6 @@ shape = SubResource("RectangleShape2D_j6jag")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor 4"]
 position = Vector2(1609, -149.499)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2pahd")
 
 [node name="transition  trigger" type="Area2D" parent="."]
@@ -172,5 +171,30 @@ position = Vector2(-428.288, -557.191)
 scale = Vector2(0.740982, 0.748912)
 shape = SubResource("RectangleShape2D_yl1ek")
 disabled = true
+
+[node name="preload_spawns" type="Node2D" parent="."]
+
+[node name="spawns1" type="Node2D" parent="preload_spawns"]
+
+[node name="sp1" type="Node2D" parent="preload_spawns/spawns1"]
+position = Vector2(-354.93, 50.1771)
+
+[node name="sp2" type="Node2D" parent="preload_spawns/spawns1"]
+position = Vector2(-58.5376, 16.4761)
+
+[node name="sp3" type="Node2D" parent="preload_spawns/spawns1"]
+position = Vector2(271.94, -13.4804)
+
+[node name="spawns2" type="Node2D" parent="preload_spawns"]
+position = Vector2(0, -0.748912)
+
+[node name="sp1" type="Node2D" parent="preload_spawns/spawns2"]
+position = Vector2(143.751, -238.154)
+
+[node name="sp2" type="Node2D" parent="preload_spawns/spawns2"]
+position = Vector2(-188.209, -274.851)
+
+[node name="sp3" type="Node2D" parent="preload_spawns/spawns2"]
+position = Vector2(-512.019, -301.063)
 
 [connection signal="body_entered" from="transition  trigger" to="." method="_on_transition__trigger_body_entered"]

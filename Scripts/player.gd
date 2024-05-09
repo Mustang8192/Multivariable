@@ -114,6 +114,8 @@ func _on_incorrect_barrel_body_entered(body):
 	if !(body is Barrel):
 		return
 	var barrel = body as Barrel
+	if barrel.paused:
+		return
 	if barrel.is_correct:
 		lives -= 1
 		barrel_spawner = barrel.get_parent().get_parent()
@@ -134,6 +136,8 @@ func _on_correct_barrel_body_entered(body):
 		return
 	if body is Barrel:
 		var barrel = body as Barrel
+		if barrel.paused:
+			return
 		if !barrel.is_correct:
 			lives -= 1
 			body.queue_free()
