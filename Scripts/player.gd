@@ -65,7 +65,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if paused:
 		velocity.x = 0
-		position.y += 5.0
+		position.y += 20
 		move_and_slide()
 		return
 

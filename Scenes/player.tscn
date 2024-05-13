@@ -13,7 +13,7 @@
 size = Vector2(23, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3kgu"]
-size = Vector2(20, 40)
+size = Vector2(20, 113)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_fmue2")
@@ -41,7 +41,7 @@ metadata/type = "player_collision"
 metadata/type = "player_collision"
 
 [node name="CorrectBarrelCollision" type="CollisionShape2D" parent="Correct Barrel"]
-position = Vector2(-1, 30)
+position = Vector2(-1, 66.5)
 shape = SubResource("RectangleShape2D_y3kgu")
 metadata/type = "player_collision"
 
