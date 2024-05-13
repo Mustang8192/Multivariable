@@ -103,6 +103,7 @@ func game_over():
 	if not level:
 		print("Game over without level loaded!")
 		return
+	
 	level.player.queue_free()
 	show_game_over()
 	

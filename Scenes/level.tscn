@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://csbjt7m57x4v0"]
+[gd_scene load_steps=10 format=3 uid="uid://csbjt7m57x4v0"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ukpym"]
 [ext_resource type="PackedScene" uid="uid://c3agcmiv0k64w" path="res://Scenes/level unit.tscn" id="2_4rk8q"]
 [ext_resource type="Script" path="res://Scripts/lives.gd" id="3_gjopc"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="4_455gv"]
 [ext_resource type="Script" path="res://Scripts/question_generation.gd" id="4_k24xk"]
 [ext_resource type="Script" path="res://Scripts/BarrelSpawner.gd" id="5_0t1ok"]
 [ext_resource type="FontFile" uid="uid://dvhra1mgppt5u" path="res://Sprites/Fonts/CS Gordon Vintage.otf" id="5_dkw8t"]
@@ -29,6 +30,18 @@ region_rect = Rect2(0, 9.284, 1602, 1192.72)
 position = Vector2(575, 868)
 scale = Vector2(0.999999, 0.999999)
 script = ExtResource("8_gl2ah")
+
+[node name="Score Counter" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -475.0
+offset_top = 124.0
+offset_right = -390.0
+offset_bottom = 156.0
+text = "Score: ?
+"
+script = ExtResource("4_455gv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Score Counter"]
 
 [node name="Lives Counter" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
