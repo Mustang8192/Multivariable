@@ -26,7 +26,7 @@
 		"question_type_2": {
 			"range_one_low": -20,
 			"range_one_high": 20,
-			"range_two_low": -20,
+			"range_two_low": 0,
 			"range_two_high": 20,
 			"question_type": "Subtraction"
 		},
