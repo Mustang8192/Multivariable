@@ -137,7 +137,7 @@ shape = SubResource("RectangleShape2D_2pahd")
 [node name="transition  trigger" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transition  trigger"]
-position = Vector2(-237.855, -509.26)
+position = Vector2(-85.213, -528.732)
 shape = SubResource("RectangleShape2D_k2lqu")
 
 [node name="Barrier" type="StaticBody2D" parent="."]
