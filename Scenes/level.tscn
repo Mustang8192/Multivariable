@@ -33,11 +33,10 @@ script = ExtResource("8_gl2ah")
 
 [node name="Score Counter" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-offset_left = -477.0
-offset_top = 160.0
-offset_right = -392.0
-offset_bottom = 192.0
-theme_override_font_sizes/normal_font_size = 0
+offset_left = -475.0
+offset_top = 124.0
+offset_right = -390.0
+offset_bottom = 156.0
 text = "Score: ?
 "
 script = ExtResource("4_455gv")
@@ -48,9 +47,8 @@ script = ExtResource("4_455gv")
 unique_name_in_owner = true
 offset_left = -477.0
 offset_top = 91.0
-offset_right = -246.0
-offset_bottom = 153.0
-theme_override_font_sizes/normal_font_size = 40
+offset_right = -396.0
+offset_bottom = 131.0
 text = "Lives: ?"
 script = ExtResource("3_gjopc")
 

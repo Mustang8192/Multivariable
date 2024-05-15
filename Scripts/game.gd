@@ -67,10 +67,11 @@ func show_tutorial():
 	tutorial_screen.back_to_main.connect(back_to_main)
 	current_screen = tutorial_screen
 
-func show_game_over():
+func show_game_over(score: int):
 	game_over_screen = game_over_scene.instantiate()
 	UI.add_child(game_over_screen)
 	game_over_screen.back_to_main.connect(back_to_main)
+	game_over_screen.score = score
 	current_screen = game_over_screen
 
 func show_credits():
@@ -99,13 +100,13 @@ func back_to_main():
 	instantiate_main_menu()
 	current_screen = main_menu
 
-func game_over():
+func game_over(score: int = 0):
 	if not level:
 		print("Game over without level loaded!")
 		return
 	
 	level.player.queue_free()
-	show_game_over()
+	show_game_over(score)
 	
 func select_character(index):
 	char_index = index as int

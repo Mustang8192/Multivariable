@@ -5,6 +5,7 @@ var player: Player
 @onready var barrel_spawner = %BarrelSpawner as BarrelSpawner
 @onready var question_gen = %Question
 @onready var lives_counter: LivesCounter = %"Lives Counter"
+@onready var score_counter: ScoreCounter = %"Score Counter"
 
 @onready var environment = %environment
 @export var active_unit: LevelUnit
@@ -43,6 +44,7 @@ func screen_transition(unit: LevelUnit):
 	if unit != active_unit:
 		return
 	level_transition.emit()
+	player.score = score_counter.score
 	var new_unit = level_unit_scene.instantiate() as LevelUnit
 	new_unit.position = units[0].position + Vector2(0, -1572)
 	units.insert(0, new_unit)

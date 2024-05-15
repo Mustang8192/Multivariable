@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ub0tt4fach0q"]
+[gd_scene load_steps=5 format=3 uid="uid://ub0tt4fach0q"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/game_over.gd" id="1_4iriu"]
 [ext_resource type="Texture2D" uid="uid://db8udnknfnyij" path="res://Sprites/Screens/Game Over Horizontal.png" id="2_m34vk"]
+[ext_resource type="FontFile" uid="uid://dvhra1mgppt5u" path="res://Sprites/Fonts/CS Gordon Vintage.otf" id="3_21vo7"]
 
-[node name="game_over" type="Control"]
+[sub_resource type="Theme" id="Theme_besj1"]
+RichTextLabel/font_sizes/normal_font_size = 80
+RichTextLabel/fonts/normal_font = ExtResource("3_21vo7")
+
+[node name="game_over" type="Control" node_paths=PackedStringArray("label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4iriu")
+label = NodePath("Score")
 
 [node name="GameOverHorizontal" type="Sprite2D" parent="."]
 position = Vector2(1084.5, 812.5)
@@ -24,6 +30,15 @@ offset_left = 758.0
 offset_top = 1350.0
 offset_right = 1416.0
 offset_bottom = 1563.0
-text = "Back to Main Menu"
+text = "Back to main"
+
+[node name="Score" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 707.0
+offset_top = 716.0
+offset_right = 1918.0
+offset_bottom = 830.0
+theme = SubResource("Theme_besj1")
+text = "Score: ?"
 
 [connection signal="button_down" from="back_to_main_menu" to="." method="_on_back_to_main_menu_button_down"]

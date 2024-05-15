@@ -1,4 +1,5 @@
 extends RichTextLabel
+class_name ScoreCounter
 
 @onready var level: Level = get_parent() as Level
 var score: int = 0

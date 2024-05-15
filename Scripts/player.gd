@@ -23,6 +23,8 @@ var animated_sprite: AnimatedSprite2D
 var current_floor: Floor
 var previous_floor: Floor
 
+var score: int
+
 @export var mario_sprites: SpriteFrames
 @export var toad_sprites: SpriteFrames
 @export var peach_sprites: SpriteFrames
@@ -127,7 +129,7 @@ func _on_incorrect_barrel_body_entered(body):
 	if !barrel.is_correct:
 		body.queue_free()
 	if lives <= 0:
-		lives_out.emit()
+		lives_out.emit(score)
 
 
 
@@ -149,7 +151,7 @@ func _on_correct_barrel_body_entered(body):
 				node.queue_free()
 			barrels.queue_free()
 		if lives <= 0:
-			lives_out.emit()
+			lives_out.emit(score)
 	if body is Floor:
 		var floor = body as Floor
 		if floor != current_floor:
