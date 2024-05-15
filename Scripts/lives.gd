@@ -9,4 +9,9 @@ func set_player(_player: Player):
 func _process(delta):
 	if player == null:
 		return
-	text = "Lives: " + str(player.get_meta("lives"))
+	if player.get_meta("lives") == 3:
+		text = "❤️❤️❤️"
+	if player.get_meta("lives") == 2:
+		text = "❤️❤️🖤"
+	if player.get_meta("lives") == 1:
+		text = "❤️🖤🖤"
